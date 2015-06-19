@@ -26,15 +26,15 @@ There is not point of testing this in Playground, as it takes **FOREVER** (unles
 
 - **getColors(scaleDownSize: CGSize) -> UIImageColors**
 
-	- Get a UIImageColors class from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. 
+Get an UIImageColors class from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. 
 
 - **getColors() -> UIImageColors**
 
-	- Get a UIImageColors class from the image. The default image scale down is 250px width, and the aspect ratio height.
+Get an UIImageColors class from the image. The default image scale down is 250px width, and the aspect ratio height.
 
 - **resize(newSize: CGSize) -> UIImage**
 
-	- Resize your image.
+Resize your image.
 
 ## UIImageColors
 
