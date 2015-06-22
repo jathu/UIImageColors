@@ -36,7 +36,7 @@ Resize your image.
 
 ## UIImageColors
 
-UIImageColors simply contain four different colors.
+UIImageColors simply contains four different UIColor.
 
 - **backgroundColor -> UIColor**
 - **primaryColor -> UIColor**
