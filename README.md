@@ -1,6 +1,6 @@
 # UIImageColors
 
-iTunes style color fetcher for UIImage. This is an *almost* identical port of [Panic's OS X ColorArt](https://github.com/panicinc/ColorArt/) for Swift.
+iTunes 11 style color fetcher for UIImage. This is an *almost* identical port of [Panic's OS X ColorArt](https://github.com/panicinc/ColorArt/) for iOS Swift.
 
 In other words, it fetches the most dominant and prominent colors.
 
@@ -8,7 +8,7 @@ In other words, it fetches the most dominant and prominent colors.
 
 # Documentation
 
-This is pretty simple to use. Example:
+This is pretty simple to use:
 
 ```Swift
 let image = UIImage(named: "hello.png")
@@ -19,8 +19,6 @@ mainLabel.textColor = colors.primaryColor
 secondaryLabel.textColor = colors.secondaryColor
 detailLabel.textColor = colors.detailColor
 ```
-
-There is not point of testing this in Playground, as it takes **FOREVER** (unless you scale down to something really small). Its pretty fast in development.
 
 ## UIImage Methods
 
@@ -54,6 +52,10 @@ As a result of testing colors for certain properties, UIColor get's some cool ex
 - **isDistinct(compareColor: UIColor) -> Bool**
 - **colorWithMinimumSaturation(minSaturation: CGFloat) -> UIColor**
 - **isContrastingColor(compareColor: UIColor) -> Bool**
+
+## License
+
+Feel free to do whatever you want. Please include the original header in any modifications or redistributions.
 
 ------
 June 2015 - Toronto

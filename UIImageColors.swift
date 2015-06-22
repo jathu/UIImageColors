@@ -1,17 +1,18 @@
 //
 //  UIImageColors.swift
+//  https://github.com/jathu/UIImageColors
 //
-//  Created by Jathu Satkunarajah on 2015-06-11 - Toronto
-//  Original Cocoa code by Panic Inc. - Portland
+//  Created by Jathu Satkunarajah (@jathu) on 2015-06-11 - Toronto
+//  Original Cocoa version by Panic Inc. - Portland
 //
 
 import UIKit
 
-class UIImageColors {
-    var backgroundColor: UIColor!
-    var primaryColor: UIColor!
-    var secondaryColor: UIColor!
-    var detailColor: UIColor!
+public class UIImageColors {
+    public var backgroundColor: UIColor!
+    public var primaryColor: UIColor!
+    public var secondaryColor: UIColor!
+    public var detailColor: UIColor!
 }
 
 class PCCountedColor {
@@ -26,17 +27,17 @@ class PCCountedColor {
 
 extension UIColor {
     
-    var isDarkColor: Bool {
+    public var isDarkColor: Bool {
         var RGB = CGColorGetComponents(self.CGColor)
         return (0.2126 * RGB[0] + 0.7152 * RGB[1] + 0.0722 * RGB[2]) < 0.5
     }
     
-    var isBlackOrWhite: Bool {
+    public var isBlackOrWhite: Bool {
         var RGB = CGColorGetComponents(self.CGColor)
         return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91) || (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
     }
     
-    func isDistinct(compareColor: UIColor) -> Bool {
+    public func isDistinct(compareColor: UIColor) -> Bool {
         var bg = CGColorGetComponents(self.CGColor)
         var fg = CGColorGetComponents(compareColor.CGColor)
         var threshold: CGFloat = 0.25
@@ -52,7 +53,7 @@ extension UIColor {
         return false
     }
     
-    func colorWithMinimumSaturation(minSaturation: CGFloat) -> UIColor {
+    public func colorWithMinimumSaturation(minSaturation: CGFloat) -> UIColor {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
@@ -66,7 +67,7 @@ extension UIColor {
         }
     }
     
-    func isContrastingColor(compareColor: UIColor) -> Bool {
+    public func isContrastingColor(compareColor: UIColor) -> Bool {
         var bg = CGColorGetComponents(self.CGColor)
         var fg = CGColorGetComponents(compareColor.CGColor)
         
@@ -81,29 +82,21 @@ extension UIColor {
 
 extension UIImage {
     
-    func resize(newSize: CGSize) -> UIImage {
+    public func resize(newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
         var result = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return result
     }
-    
-    var width: Int {
-        return Int(self.size.width)
-    }
-    
-    var height: Int {
-        return Int(self.size.height)
-    }
 
-    func getColors() -> UIImageColors {
+    public func getColors() -> UIImageColors {
         let ratio = self.size.width/self.size.height
         let r_width: CGFloat = 250
         return self.getColors(CGSizeMake(r_width, r_width/ratio))
     }
     
-    func getColors(scaleDownSize: CGSize) -> UIImageColors {
+    public func getColors(scaleDownSize: CGSize) -> UIImageColors {
         var result = UIImageColors()
         
         let cgImage = self.resize(scaleDownSize).CGImage
