@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class UIImageColors {
+public struct UIImageColors {
     public var backgroundColor: UIColor!
     public var primaryColor: UIColor!
     public var secondaryColor: UIColor!

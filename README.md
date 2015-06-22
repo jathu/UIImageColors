@@ -24,11 +24,11 @@ detailLabel.textColor = colors.detailColor
 
 - **getColors(scaleDownSize: CGSize) -> UIImageColors**
 
-Get an UIImageColors class from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. 
+Get an UIImageColors struct from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. 
 
 - **getColors() -> UIImageColors**
 
-Get an UIImageColors class from the image. The default image scale down is 250px width, and the aspect ratio height.
+Get an UIImageColors struct from the image. The default image scale down is 250px width, and the aspect ratio height.
 
 - **resize(newSize: CGSize) -> UIImage**
 
