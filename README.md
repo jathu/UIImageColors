@@ -4,7 +4,7 @@ iTunes 11 style color fetcher for UIImage. This is an *almost* identical port of
 
 In other words, it fetches the most dominant and prominent colors.
 
-![preview](images/preview.png)
+![preview](preview.png)
 
 # Documentation
 

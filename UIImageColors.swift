@@ -89,7 +89,7 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return result
     }
-
+    
     public func getColors() -> UIImageColors {
         let ratio = self.size.width/self.size.height
         let r_width: CGFloat = 250
@@ -140,7 +140,8 @@ extension UIImage {
                     alpha: 1
                 )
                 
-                if x == 10 {
+                // A lot of albums have white or black edges from crops, so ignore the first few pixels
+                if 5 <= x && x <= 10 {
                     leftEdgeColors.addObject(color)
                 }
                 
