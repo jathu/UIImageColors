@@ -17,14 +17,14 @@ public class Album {
 public class Container: UIView {
     
     public init(album: Album) {
-        super.init(frame: CGRectMake(0, 0, 450, 100))
+        super.init(frame: CGRectMake(0, 0, 360, 100))
         
         let albumImageView = UIImageView(frame: CGRectMake(0, 0, self.frame.height, self.frame.height))
         albumImageView.image = UIImage(named: album.albumFile)
         self.addSubview(albumImageView)
         
         let albumTitle = UILabel()
-        albumTitle.font = UIFont(name: "Helvetica-Bold", size: 18)
+        albumTitle.font = UIFont(name: "Helvetica-Bold", size: 14)
         albumTitle.text = album.albumName
         albumTitle.sizeToFit()
         self.addSubview(albumTitle)
