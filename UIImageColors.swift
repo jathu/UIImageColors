@@ -122,7 +122,7 @@ extension UIImage {
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let raw = malloc(bytesPerRow * height)
-        let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.PremultipliedFirst.rawValue)
+        let bitmapInfo = CGImageAlphaInfo.PremultipliedFirst.rawValue
         let ctx = CGBitmapContextCreate(raw, width, height, bitsPerComponent, bytesPerRow, colorSpace, bitmapInfo)
         CGContextDrawImage(ctx, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), cgImage)
         let data = UnsafePointer<UInt8>(CGBitmapContextGetData(ctx))
