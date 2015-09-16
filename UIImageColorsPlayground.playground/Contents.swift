@@ -27,6 +27,6 @@ for(var i = 0; i < Albums.count; i++) {
 }
 
 UIGraphicsBeginImageContext(box.frame.size)
-box.layer.renderInContext(UIGraphicsGetCurrentContext())
+box.layer.renderInContext(UIGraphicsGetCurrentContext()!)
 let screenshot = UIGraphicsGetImageFromCurrentImageContext()
 UIGraphicsEndImageContext()
