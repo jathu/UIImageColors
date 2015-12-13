@@ -17,14 +17,16 @@ public class Album {
 public class Container: UIView {
     
     public init(album: Album) {
-        super.init(frame: CGRectMake(0, 0, 360, 100))
+        super.init(frame: CGRectMake(0, 0, 444, 120))
         
+        // Album artwork
         let albumImageView = UIImageView(frame: CGRectMake(0, 0, self.frame.height, self.frame.height))
         albumImageView.image = UIImage(named: album.albumFile)
         self.addSubview(albumImageView)
         
+        // Text
         let albumTitle = UILabel()
-        albumTitle.font = UIFont(name: "Helvetica-Bold", size: 14)
+        albumTitle.font = UIFont(name: "Helvetica-Bold", size: 17)
         albumTitle.text = album.albumName
         albumTitle.sizeToFit()
         self.addSubview(albumTitle)
@@ -43,12 +45,9 @@ public class Container: UIView {
         
         // Set frames
         let labelHeight = artistTitle.frame.height
-        
         albumTitle.frame.size.width = self.frame.width - albumImageView.frame.width - (labelHeight * 2)
         albumTitle.frame.origin = CGPointMake(floor(albumImageView.frame.width + labelHeight), floor(self.frame.height/2 - labelHeight))
-        
         artistTitle.frame.origin = CGPointMake(albumTitle.frame.origin.x, floor(albumTitle.frame.origin.y + labelHeight*1.5))
-        
         yearLabel.frame.origin = CGPointMake(artistTitle.frame.origin.x + artistTitle.frame.width, artistTitle.frame.origin.y)
         
         // Set colors

@@ -7,7 +7,7 @@ let Albums: [Album] = [
     Album(albumFile: "Nothing Was the Same.png", albumName: "Nothing Was the Same", artistName: "Drake", year: 2013),
     Album(albumFile: "My Beautiful Dark Twisted Fantasy.png", albumName: "My Beautiful Dark Twisted Fantasy", artistName: "Kanye West", year: 2010),
     Album(albumFile: "Kind of Blue.png", albumName: "Kind of Blue", artistName: "Miles Davis", year: 1959),
-    Album(albumFile: "My Name is My Name.png", albumName: "My Name is My Name", artistName: "Pusha T", year: 2013),
+    Album(albumFile: "If You're Reading This It's Too Late.png", albumName: "If You're Reading This It's Too Late", artistName: "Drake", year: 2015),
     Album(albumFile: "New Morning.png", albumName: "New Morning", artistName: "Bob Dylan", year: 1970),
     Album(albumFile: "Since I Left You.png", albumName: "Since I Left You", artistName: "The Avalanches", year: 2000),
     Album(albumFile: "Random Access Memories.png", albumName: "Random Access Memories", artistName: "Daft Punk", year: 2013),
