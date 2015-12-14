@@ -234,7 +234,7 @@ extension UIImage {
             result.detailColor = isDarkBackgound ? whiteColor:blackColor
         }
         
-        //Release the allocated memory
+        // Release the allocated memory
         free(raw)
         
         return result

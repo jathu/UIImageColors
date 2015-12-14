@@ -89,7 +89,7 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return result
     }
-
+    
     public func getColors() -> UIImageColors {
         let ratio = self.size.width/self.size.height
         let r_width: CGFloat = 250
@@ -233,6 +233,9 @@ extension UIImage {
         if result.detailColor == nil {
             result.detailColor = isDarkBackgound ? whiteColor:blackColor
         }
+        
+        // Release the allocated memory
+        free(raw)
         
         return result
     }
