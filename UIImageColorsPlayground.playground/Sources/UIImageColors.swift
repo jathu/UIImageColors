@@ -130,8 +130,8 @@ extension UIImage {
         let leftEdgeColors = NSCountedSet(capacity: height)
         let imageColors = NSCountedSet(capacity: width * height)
         
-        for var x = 0; x < width; x++ {
-            for var y = 0; y < height; y++ {
+        for x in 0..<width {
+            for y in 0..<height {
                 let pixel = ((width * y) + x) * bytesPerPixel
                 let color = UIColor(
                     red: CGFloat(data[pixel+1])/255,
@@ -168,7 +168,7 @@ extension UIImage {
         }
         
         if proposedEdgeColor.color.isBlackOrWhite && 0 < sortedColors.count {
-            for var i = 1; i < sortedColors.count; i++ {
+            for i in 1..<sortedColors.count {
                 let nextProposedEdgeColor = sortedColors.objectAtIndex(i) as! PCCountedColor
                 if (CGFloat(nextProposedEdgeColor.count)/CGFloat(proposedEdgeColor.count)) > 0.3 {
                     if !nextProposedEdgeColor.color.isBlackOrWhite {
