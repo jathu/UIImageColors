@@ -21,7 +21,7 @@ let sample = Container(album: Albums[0])
 let box = UIView(frame: CGRectMake(0, 0, sample.frame.width * 2, ceil(CGFloat(Albums.count)/2) * sample.frame.height))
 
 for (index, album) in Albums.enumerate() {
-    let c = Container(album: Albums[index])
+    let c = Container(album: album)
     c.frame.origin = CGPointMake((index%2 == 0) ? 0:sample.frame.width, sample.frame.height * floor(CGFloat(index)/2))
     box.addSubview(c)
 }
