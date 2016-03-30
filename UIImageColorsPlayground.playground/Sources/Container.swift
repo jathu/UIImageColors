@@ -16,28 +16,33 @@ public class Album {
 
 public class Container: UIView {
     
+    public var albumImageView: UIImageView!
+    public var albumTitle:UILabel!
+    public var artistTitle:UILabel!
+    public var yearLabel:UILabel!
+    
     public init(album: Album) {
         super.init(frame: CGRectMake(0, 0, 444, 120))
         
         // Album artwork
-        let albumImageView = UIImageView(frame: CGRectMake(0, 0, self.frame.height, self.frame.height))
+        albumImageView = UIImageView(frame: CGRectMake(0, 0, self.frame.height, self.frame.height))
         albumImageView.image = UIImage(named: album.albumFile)
         self.addSubview(albumImageView)
         
         // Text
-        let albumTitle = UILabel()
+        albumTitle = UILabel()
         albumTitle.font = UIFont(name: "Helvetica-Bold", size: 17)
         albumTitle.text = album.albumName
         albumTitle.sizeToFit()
         self.addSubview(albumTitle)
         
-        let artistTitle = UILabel()
+        artistTitle = UILabel()
         artistTitle.font = UIFont(name: "Helvetica-Bold", size: albumTitle.font.pointSize*0.75)
         artistTitle.text = album.artistName
         artistTitle.sizeToFit()
         self.addSubview(artistTitle)
         
-        let yearLabel = UILabel()
+        yearLabel = UILabel()
         yearLabel.font = artistTitle.font
         yearLabel.text = " · \(album.year)"
         yearLabel.sizeToFit()
@@ -51,11 +56,12 @@ public class Container: UIView {
         yearLabel.frame.origin = CGPointMake(artistTitle.frame.origin.x + artistTitle.frame.width, artistTitle.frame.origin.y)
         
         // Set colors
-        let colors = albumImageView.image!.getColors()
-        self.backgroundColor = colors.backgroundColor
-        albumTitle.textColor = colors.primaryColor
-        artistTitle.textColor = colors.secondaryColor
-        yearLabel.textColor = colors.detailColor
+//        albumImageView.image!.getColors { (colors) in
+//            self.backgroundColor = colors.backgroundColor
+//            albumTitle.textColor = colors.primaryColor
+//            artistTitle.textColor = colors.secondaryColor
+//            yearLabel.textColor = colors.detailColor
+//        }
     }
 
     required public init(coder aDecoder: NSCoder) {
