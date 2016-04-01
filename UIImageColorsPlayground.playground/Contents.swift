@@ -23,7 +23,7 @@ let Albums: [Album] = [
 let sample = Container(album: Albums[0])
 let box = UIView(frame: CGRectMake(0, 0, sample.frame.width * 2, ceil(CGFloat(Albums.count)/2) * sample.frame.height))
 
-for i in 0..<Albums.count {
+for (i, album) in Albums.enumerate() {
     let c = Container(album: Albums[i])
     
     c.albumImageView.image!.getColors({ (colors) in
@@ -39,5 +39,6 @@ for i in 0..<Albums.count {
     })
     
     c.frame.origin = CGPointMake((i%2 == 0) ? 0:sample.frame.width, sample.frame.height * floor(CGFloat(i)/2))
+    
     box.addSubview(c)
 }
