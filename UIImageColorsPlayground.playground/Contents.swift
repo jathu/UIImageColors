@@ -20,7 +20,7 @@ let Albums: [Album] = [
 let sample = Container(album: Albums[0])
 let box = UIView(frame: CGRectMake(0, 0, sample.frame.width * 2, ceil(CGFloat(Albums.count)/2) * sample.frame.height))
 
-for(var i = 0; i < Albums.count; i++) {
+for i in 0..<Albums.count {
     let c = Container(album: Albums[i])
     c.frame.origin = CGPointMake((i%2 == 0) ? 0:sample.frame.width, sample.frame.height * floor(CGFloat(i)/2))
     box.addSubview(c)
