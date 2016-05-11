@@ -73,8 +73,11 @@ extension UIColor {
         
         let bgLum = 0.2126 * bg[0] + 0.7152 * bg[1] + 0.0722 * bg[2]
         let fgLum = 0.2126 * fg[0] + 0.7152 * fg[1] + 0.0722 * fg[2]
-        let contrast = (bgLum > fgLum) ? (bgLum + 0.05)/(fgLum + 0.05):(fgLum + 0.05)/(bgLum + 0.05)
         
+        let bgGreater = bgLum > fgLum
+        let nom = bgGreater ? bgLum : fgLum
+        let denom = bgGreater ? fgLum : bgLum
+        let contrast = (nom + 0.05) / (denom + 0.05)
         return 1.6 < contrast
     }
     
