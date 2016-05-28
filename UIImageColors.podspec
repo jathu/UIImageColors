@@ -1,14 +1,13 @@
-Pod::Spec.new do |s|
-  s.name        = "UIImageColors"
-  s.version     = "1.0.4"
-  s.summary     = "iTunes 11 style color fetcher for UIImage"
-  s.homepage    = "https://github.com/jathu/UIImageColors"
-  s.authors     = { "Jathu Satkunarajah" => "https://twitter.com/jathu" }
-  s.source   = { :git => "https://github.com/jathu/UIImageColors.git", :tag => s.version }
+Pod::Spec.new do |spec|
+  spec.name        = "UIImageColors"
+  spec.version     = "1.0.4"
+  spec.license     = "MIT"
+  spec.summary     = "iTunes style color fetcher for UIImage."
+  spec.homepage    = "https://github.com/jathu/UIImageColors"
+  spec.authors     = { "Jathu Satkunarajah" => "https://twitter.com/jathu" }
+  spec.source      = { :git => "https://github.com/jathu/UIImageColors.git", :tag => spec.version }
 
-  s.ios.deployment_target = "8.0"
-
-  s.source_files = "*.swift"
-
-  s.requires_arc = true
+  spec.ios.deployment_target = "8.0"
+  spec.source_files = "*.swift"
+  spec.requires_arc = true
 end
