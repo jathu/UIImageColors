@@ -27,17 +27,17 @@ class PCCountedColor {
 
 extension UIColor {
     
-    public var isDarkColor: Bool {
+    private var isDarkColor: Bool {
         let RGB = CGColorGetComponents(self.CGColor)
         return (0.2126 * RGB[0] + 0.7152 * RGB[1] + 0.0722 * RGB[2]) < 0.5
     }
     
-    public var isBlackOrWhite: Bool {
+    private var isBlackOrWhite: Bool {
         let RGB = CGColorGetComponents(self.CGColor)
         return (RGB[0] > 0.91 && RGB[1] > 0.91 && RGB[2] > 0.91) || (RGB[0] < 0.09 && RGB[1] < 0.09 && RGB[2] < 0.09)
     }
     
-    public func isDistinct(compareColor: UIColor) -> Bool {
+    private func isDistinct(compareColor: UIColor) -> Bool {
         let bg = CGColorGetComponents(self.CGColor)
         let fg = CGColorGetComponents(compareColor.CGColor)
         let threshold: CGFloat = 0.25
@@ -53,7 +53,7 @@ extension UIColor {
         return false
     }
     
-    public func colorWithMinimumSaturation(minSaturation: CGFloat) -> UIColor {
+    private func colorWithMinimumSaturation(minSaturation: CGFloat) -> UIColor {
         var hue: CGFloat = 0.0
         var saturation: CGFloat = 0.0
         var brightness: CGFloat = 0.0
@@ -67,7 +67,7 @@ extension UIColor {
         }
     }
     
-    public func isContrastingColor(compareColor: UIColor) -> Bool {
+    private func isContrastingColor(compareColor: UIColor) -> Bool {
         let bg = CGColorGetComponents(self.CGColor)
         let fg = CGColorGetComponents(compareColor.CGColor)
         
@@ -85,7 +85,7 @@ extension UIColor {
 
 extension UIImage {
     
-    public func resize(newSize: CGSize) -> UIImage {
+    private func resize(newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
         let result = UIGraphicsGetImageFromCurrentImageContext()
