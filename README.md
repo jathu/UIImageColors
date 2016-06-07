@@ -38,13 +38,13 @@ Get a `UIImageColors` struct from the image. The default image scale down is 250
 
 ## UIImageColors
 
-UIImageColors simply contains four different UIColor.
+`UIImageColors` simply contains four different `UIColor`s.
 
 ```swift
-backgroundColor: UIColor
-primaryColor: UIColor
-secondaryColor: UIColor
-detailColor: UIColor
+var backgroundColor
+var primaryColor
+var secondaryColor
+var detailColor
 ```
 
 ## License
