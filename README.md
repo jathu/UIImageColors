@@ -36,10 +36,6 @@ getColors(completionHandler: (UIImageColors) -> Void)
 
 Get a `UIImageColors` struct from the image. The default image scale down is 250px width, and the aspect ratio height.
 
-- **resize(newSize: CGSize) -> UIImage**
-
-Resize your image.
-
 ## UIImageColors
 
 UIImageColors simply contains four different UIColor.
@@ -50,16 +46,6 @@ primaryColor: UIColor
 secondaryColor: UIColor
 detailColor: UIColor
 ```
-
-## UIColor Methods
-
-As a result of testing colors for certain properties, UIColor get's some cool extensions. The functions are self-explanatory.
-
-- **isDarkColor -> Bool**
-- **isBlackOrWhite -> Bool**
-- **isDistinct(compareColor: UIColor) -> Bool**
-- **colorWithMinimumSaturation(minSaturation: CGFloat) -> UIColor**
-- **isContrastingColor(compareColor: UIColor) -> Bool**
 
 ## License
 
