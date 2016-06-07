@@ -10,27 +10,31 @@ In other words, it fetches the most dominant and prominent colors.
 
 This is pretty simple to use:
 
-```Swift
+```swift
 let image = UIImage(named: "hello.png")
 
-image.getColors({ (colors) in
+image.getColors { colors in
   backgroundView.backgroundColor = colors.backgroundColor
   mainLabel.textColor = colors.primaryColor
   secondaryLabel.textColor = colors.secondaryColor
   detailLabel.textColor = colors.detailColor
-})
+}
 
 ```
 
 ## UIImage Methods
 
-- **getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void)**
+```swift
+getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void)
+```
 
-Get an UIImageColors struct from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance.
+Get a `UIImageColors` struct from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance.
 
-- **getColors(completionHandler: (UIImageColors) -> Void)**
+```swift
+getColors(completionHandler: (UIImageColors) -> Void)
+```
 
-Get an UIImageColors struct from the image. The default image scale down is 250px width, and the aspect ratio height.
+Get a `UIImageColors` struct from the image. The default image scale down is 250px width, and the aspect ratio height.
 
 - **resize(newSize: CGSize) -> UIImage**
 
@@ -40,10 +44,12 @@ Resize your image.
 
 UIImageColors simply contains four different UIColor.
 
-- **backgroundColor -> UIColor**
-- **primaryColor -> UIColor**
-- **secondaryColor -> UIColor**
-- **detailColor -> UIColor**
+```swift
+backgroundColor: UIColor
+primaryColor: UIColor
+secondaryColor: UIColor
+detailColor: UIColor
+```
 
 ## UIColor Methods
 
