@@ -10,50 +10,42 @@ In other words, it fetches the most dominant and prominent colors.
 
 This is pretty simple to use:
 
-```Swift
+```swift
 let image = UIImage(named: "hello.png")
 
-image.getColors({ (colors) in
+image.getColors { colors in
   backgroundView.backgroundColor = colors.backgroundColor
   mainLabel.textColor = colors.primaryColor
   secondaryLabel.textColor = colors.secondaryColor
   detailLabel.textColor = colors.detailColor
-})
+}
 
 ```
 
 ## UIImage Methods
 
-- **getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void)**
+```swift
+getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void)
+```
 
-Get an UIImageColors struct from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance.
+Get a `UIImageColors` struct from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance.
 
-- **getColors(completionHandler: (UIImageColors) -> Void)**
+```swift
+getColors(completionHandler: (UIImageColors) -> Void)
+```
 
-Get an UIImageColors struct from the image. The default image scale down is 250px width, and the aspect ratio height.
-
-- **resize(newSize: CGSize) -> UIImage**
-
-Resize your image.
+Get a `UIImageColors` struct from the image. The default image scale down is 250px width, and the aspect ratio height.
 
 ## UIImageColors
 
-UIImageColors simply contains four different UIColor.
+`UIImageColors` simply contains four different `UIColor`s.
 
-- **backgroundColor -> UIColor**
-- **primaryColor -> UIColor**
-- **secondaryColor -> UIColor**
-- **detailColor -> UIColor**
-
-## UIColor Methods
-
-As a result of testing colors for certain properties, UIColor get's some cool extensions. The functions are self-explanatory.
-
-- **isDarkColor -> Bool**
-- **isBlackOrWhite -> Bool**
-- **isDistinct(compareColor: UIColor) -> Bool**
-- **colorWithMinimumSaturation(minSaturation: CGFloat) -> UIColor**
-- **isContrastingColor(compareColor: UIColor) -> Bool**
+```swift
+var backgroundColor
+var primaryColor
+var secondaryColor
+var detailColor
+```
 
 ## License
 
