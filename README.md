@@ -6,12 +6,10 @@ In other words, it fetches the most dominant and prominent colors.
 
 ![preview](preview.png)
 
-# Documentation
-
-This is pretty simple to use:
+## Example
 
 ```swift
-let image = UIImage(named: "hello.png")
+let image = UIImage(named: "yeezus.png")
 
 image.getColors { colors in
   backgroundView.backgroundColor = colors.backgroundColor
@@ -25,20 +23,20 @@ image.getColors { colors in
 ## UIImage Methods
 
 ```swift
-getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void)
-```
-
-Get a `UIImageColors` struct from the image. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance.
-
-```swift
 getColors(completionHandler: (UIImageColors) -> Void)
 ```
 
-Get a `UIImageColors` struct from the image. The default image scale down is 250px width, and the aspect ratio height.
+Returns a `UIImageColors` object. The sample image is rescaled to a width of 250px and the aspect ratio height.
+
+```swift
+getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void)
+```
+
+Returns a `UIImageColors` object with a custom image rescale. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance.
 
 ## UIImageColors
 
-`UIImageColors` simply contains four different `UIColor`s.
+`UIImageColors` is struct that contains four different `UIColor`s.
 
 ```swift
 var backgroundColor
@@ -49,27 +47,7 @@ var detailColor
 
 ## License
 
-MIT License
-
-Copyright (c) 2015 Jathu Satkunarajah
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+The [license](https://github.com/jathu/UIImageColors/blob/master/LICENSE) is provided in the project folder. Please also refer to Panic's [original license](https://github.com/panicinc/ColorArt/#license).
 
 ------
 June 2015 - Toronto
