@@ -54,14 +54,6 @@ public class Container: UIView {
         albumTitle.frame.origin = CGPointMake(floor(albumImageView.frame.width + labelHeight), floor(self.frame.height/2 - labelHeight))
         artistTitle.frame.origin = CGPointMake(albumTitle.frame.origin.x, floor(albumTitle.frame.origin.y + labelHeight*1.5))
         yearLabel.frame.origin = CGPointMake(artistTitle.frame.origin.x + artistTitle.frame.width, artistTitle.frame.origin.y)
-        
-        // Set colors
-//        albumImageView.image!.getColors { (colors) in
-//            self.backgroundColor = colors.backgroundColor
-//            albumTitle.textColor = colors.primaryColor
-//            artistTitle.textColor = colors.secondaryColor
-//            yearLabel.textColor = colors.detailColor
-//        }
     }
 
     required public init(coder aDecoder: NSCoder) {

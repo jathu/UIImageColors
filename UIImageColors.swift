@@ -85,7 +85,7 @@ extension UIColor {
 
 extension UIImage {
     
-    private func resize(newSize: CGSize) -> UIImage {
+    private func resizeForUIImageColors(newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
         let result = UIGraphicsGetImageFromCurrentImageContext()
@@ -119,6 +119,7 @@ extension UIImage {
      - returns: `UIImageColors` for this image.
      */
     public func getColors(scaleDownSize: CGSize = CGSize.zero) -> UIImageColors {
+        
         var scaleDownSize = scaleDownSize
         if scaleDownSize == CGSize.zero {
             let ratio = self.size.width/self.size.height
@@ -128,7 +129,7 @@ extension UIImage {
         
         var result = UIImageColors()
         
-        let cgImage = self.resize(scaleDownSize).CGImage
+        let cgImage = self.resizeForUIImageColors(scaleDownSize).CGImage
         let width = CGImageGetWidth(cgImage)
         let height = CGImageGetHeight(cgImage)
         
