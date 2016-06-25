@@ -26,7 +26,7 @@ let box = UIView(frame: CGRectMake(0, 0, sample.frame.width * 2, ceil(CGFloat(Al
 for (i, album) in Albums.enumerate() {
     let c = Container(album: Albums[i])
     
-    c.albumImageView.image!.getColors({ (colors) in
+    c.albumImageView.image!.getColors { colors in
         c.backgroundColor = colors.backgroundColor
         c.albumTitle.textColor = colors.primaryColor
         c.artistTitle.textColor = colors.secondaryColor
@@ -36,7 +36,7 @@ for (i, album) in Albums.enumerate() {
             box.alpha = 1; // Just a random call to be able to see the box
             XCPlaygroundPage.currentPage.finishExecution()
         }
-    })
+    }
     
     c.frame.origin = CGPointMake((i%2 == 0) ? 0:sample.frame.width, sample.frame.height * floor(CGFloat(i)/2))
     
