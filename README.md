@@ -8,6 +8,8 @@ In other words, it fetches the most dominant and prominent colors.
 
 ## Example
 
+Asynchronous example:
+
 ```swift
 let image = UIImage(named: "yeezus.png")
 
@@ -18,6 +20,8 @@ image.getColors { colors in
   detailLabel.textColor = colors.detailColor
 }
 ```
+
+Synchronous example:
 
 ```swift
 let colors = UIImage(named: "yeezus.png").getColors()
@@ -34,7 +38,7 @@ detailLabel.textColor = colors.detailColor
 getColors() -> UIImageColors
 ```
 
-Returns a UIImageColors object. The sample image is rescaled to a width of 250px and the aspect ratio height. This blocks the main thread.
+Returns a `UIImageColors` object. The sample image is rescaled to a width of 250px and the aspect ratio height. This blocks the main thread.
 
 ```swift
 getColors(scaleDownSize: CGSize) -> UIImageColors
@@ -43,16 +47,16 @@ getColors(scaleDownSize: CGSize) -> UIImageColors
 Returns a `UIImageColors` object with a custom image rescale. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. This blocks the main thread.
 
 ```swift
-getColors(completionHandler: (UIImageColors) -> Void)
+getColors(completionHandler: (UIImageColors) -> Void) -> Void
 ```
 
-Returns a `UIImageColors` object. The sample image is rescaled to a width of 250px and the aspect ratio height. This runs on the background thread.
+Passes a `UIImageColors` object into the closure. The sample image is rescaled to a width of 250px and the aspect ratio height. This runs on the background thread.
 
 ```swift
-getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void)
+getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void) -> Void
 ```
 
-Returns a `UIImageColors` object with a custom image rescale. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. This runs on the background thread.
+Passes a `UIImageColors` object into the closure, with a custom image rescale. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. This runs on the background thread.
 
 ## UIImageColors
 
