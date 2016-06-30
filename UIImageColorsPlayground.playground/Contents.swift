@@ -20,25 +20,41 @@ let Albums: [Album] = [
     Album(albumFile: "Black on Both Sides.png", albumName: "Black on Both Sides", artistName: "Mos Def", year: 1999)
 ]
 
-let sample = Container(album: Albums[0])
-let box = UIView(frame: CGRectMake(0, 0, sample.frame.width * 2, ceil(CGFloat(Albums.count)/2) * sample.frame.height))
+func makeBox(asynchronous: Bool, completionHandler: (UIView) -> Void) {
+    let maxIterations = CGFloat(Albums.count)
+    let sample = Container(album: Albums[0])
+    let box = UIView(frame: CGRectMake(0, 0, sample.frame.width*2, ceil(maxIterations/2)*sample.frame.height))
+    
+    for i in CGFloat(0).stride(to: maxIterations, by: 1) {
+        let c = Container(album: Albums[Int(i)])
+        c.frame.origin = CGPointMake(sample.frame.width*(i%2), sample.frame.height*floor(i/2))
+        box.addSubview(c)
 
-for (i, album) in Albums.enumerate() {
-    let c = Container(album: Albums[i])
-    
-    c.albumImageView.image!.getColors({ (colors) in
-        c.backgroundColor = colors.backgroundColor
-        c.albumTitle.textColor = colors.primaryColor
-        c.artistTitle.textColor = colors.secondaryColor
-        c.yearLabel.textColor = colors.detailColor
-        
-        if i == Albums.count-1 {
-            box.alpha = 1; // Just a random call to be able to see the box
-            XCPlaygroundPage.currentPage.finishExecution()
+        if asynchronous {
+            c.albumImageView.image!.getColors { colors in
+                c.backgroundColor = colors.backgroundColor
+                c.albumTitle.textColor = colors.primaryColor
+                c.artistTitle.textColor = colors.secondaryColor
+                c.yearLabel.textColor = colors.detailColor
+                if i == maxIterations-1 {
+                    completionHandler(box)
+                }
+            }
+        } else {
+            let colors = c.albumImageView.image!.getColors()
+            c.backgroundColor = colors.backgroundColor
+            c.albumTitle.textColor = colors.primaryColor
+            c.artistTitle.textColor = colors.secondaryColor
+            c.yearLabel.textColor = colors.detailColor
+            if i == maxIterations-1 {
+                completionHandler(box)
+            }
         }
-    })
-    
-    c.frame.origin = CGPointMake((i%2 == 0) ? 0:sample.frame.width, sample.frame.height * floor(CGFloat(i)/2))
-    
-    box.addSubview(c)
+    }
+}
+
+// Make a box of albums
+makeBox(true) { box in
+    box.alpha = 1
+    XCPlaygroundPage.currentPage.finishExecution()
 }
