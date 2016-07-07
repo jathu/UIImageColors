@@ -87,9 +87,14 @@ extension UIImage {
     
     private func resizeForUIImageColors(newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        defer {
+            UIGraphicsEndImageContext()
+        }
         self.drawInRect(CGRectMake(0, 0, newSize.width, newSize.height))
-        let result = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
+
+        guard let result = UIGraphicsGetImageFromCurrentImageContext() else {
+          fatalError("UIImageColors.resizeForUIImageColors failed: UIGraphicsGetImageFromCurrentImageContext returned nil")
+        }
         return result
     }
     
@@ -152,8 +157,13 @@ extension UIImage {
         
         let colorSpace = CGColorSpaceCreateDeviceRGB()
         let raw = malloc(bytesPerRow * height)
+        defer {
+            free(raw)
+        }
         let bitmapInfo = CGImageAlphaInfo.PremultipliedFirst.rawValue
-        let ctx = CGBitmapContextCreate(raw, width, height, bitsPerComponent, bytesPerRow, colorSpace, bitmapInfo)
+        guard let ctx = CGBitmapContextCreate(raw, width, height, bitsPerComponent, bytesPerRow, colorSpace, bitmapInfo) else {
+            fatalError("UIImageColors.getColors failed: could not create CGBitmapContext")
+        }
         CGContextDrawImage(ctx, CGRectMake(0, 0, CGFloat(width), CGFloat(height)), cgImage)
         let data = UnsafePointer<UInt8>(CGBitmapContextGetData(ctx))
         
@@ -263,10 +273,7 @@ extension UIImage {
         if result.detailColor == nil {
             result.detailColor = isDarkBackgound ? whiteColor:blackColor
         }
-        
-        // Release the allocated memory
-        free(raw)
-        
+
         return result
     }
 }
