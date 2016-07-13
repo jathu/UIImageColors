@@ -134,7 +134,7 @@ extension UIImage {
         
         var result = UIImageColors()
         
-        let cgImage = self.resizeForUIImageColors(scaleDownSize).CGImage
+        let cgImage = self.resizeForUIImageColors(scaleDownSize).CGImage!
         let width = CGImageGetWidth(cgImage)
         let height = CGImageGetHeight(cgImage)
         
