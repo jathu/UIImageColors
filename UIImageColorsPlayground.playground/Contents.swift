@@ -20,14 +20,14 @@ let Albums: [Album] = [
     Album(albumFile: "Black on Both Sides.png", albumName: "Black on Both Sides", artistName: "Mos Def", year: 1999)
 ]
 
-func makeBox(asynchronous: Bool, completionHandler: (UIView) -> Void) {
+func makeBox(_ asynchronous: Bool, completionHandler: @escaping (UIView) -> Void) {
     let maxIterations = CGFloat(Albums.count)
     let sample = Container(album: Albums[0])
-    let box = UIView(frame: CGRectMake(0, 0, sample.frame.width*2, ceil(maxIterations/2)*sample.frame.height))
+    let box = UIView(frame: CGRect(x: 0, y: 0, width: sample.frame.width*2, height: ceil(maxIterations/2)*sample.frame.height))
     
-    for i in CGFloat(0).stride(to: maxIterations, by: 1) {
+    for i in stride(from: CGFloat(0), to: maxIterations, by: 1) {
         let c = Container(album: Albums[Int(i)])
-        c.frame.origin = CGPointMake(sample.frame.width*(i%2), sample.frame.height*floor(i/2))
+        c.frame.origin = CGPoint(x: sample.frame.width*(i.truncatingRemainder(dividingBy: 2)), y: sample.frame.height*floor(i/2))
         box.addSubview(c)
 
         if asynchronous {

@@ -1,10 +1,10 @@
 import UIKit
 
-public class Album {
-    public let albumFile: String
-    public let albumName: String
-    public let artistName: String
-    public let year: Int
+open class Album {
+    open let albumFile: String
+    open let albumName: String
+    open let artistName: String
+    open let year: Int
     
     public init(albumFile: String, albumName: String, artistName: String, year: Int) {
         self.albumFile = albumFile
@@ -14,18 +14,18 @@ public class Album {
     }
 }
 
-public class Container: UIView {
+open class Container: UIView {
     
-    public var albumImageView: UIImageView!
-    public var albumTitle:UILabel!
-    public var artistTitle:UILabel!
-    public var yearLabel:UILabel!
+    open var albumImageView: UIImageView!
+    open var albumTitle:UILabel!
+    open var artistTitle:UILabel!
+    open var yearLabel:UILabel!
     
     public init(album: Album) {
-        super.init(frame: CGRectMake(0, 0, 444, 120))
+        super.init(frame: CGRect(x: 0, y: 0, width: 444, height: 120))
         
         // Album artwork
-        albumImageView = UIImageView(frame: CGRectMake(0, 0, self.frame.height, self.frame.height))
+        albumImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.frame.height, height: self.frame.height))
         albumImageView.image = UIImage(named: album.albumFile)
         self.addSubview(albumImageView)
         
@@ -51,9 +51,9 @@ public class Container: UIView {
         // Set frames
         let labelHeight = artistTitle.frame.height
         albumTitle.frame.size.width = self.frame.width - albumImageView.frame.width - (labelHeight * 2)
-        albumTitle.frame.origin = CGPointMake(floor(albumImageView.frame.width + labelHeight), floor(self.frame.height/2 - labelHeight))
-        artistTitle.frame.origin = CGPointMake(albumTitle.frame.origin.x, floor(albumTitle.frame.origin.y + labelHeight*1.5))
-        yearLabel.frame.origin = CGPointMake(artistTitle.frame.origin.x + artistTitle.frame.width, artistTitle.frame.origin.y)
+        albumTitle.frame.origin = CGPoint(x: floor(albumImageView.frame.width + labelHeight), y: floor(self.frame.height/2 - labelHeight))
+        artistTitle.frame.origin = CGPoint(x: albumTitle.frame.origin.x, y: floor(albumTitle.frame.origin.y + labelHeight*1.5))
+        yearLabel.frame.origin = CGPoint(x: artistTitle.frame.origin.x + artistTitle.frame.width, y: artistTitle.frame.origin.y)
     }
 
     required public init(coder aDecoder: NSCoder) {
