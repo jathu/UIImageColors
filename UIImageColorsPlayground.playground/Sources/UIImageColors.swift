@@ -25,7 +25,21 @@ class PCCountedColor {
     }
 }
 
+extension CGColor {
+    var components: [CGFloat] {
+        get {
+            var red = CGFloat()
+            var green = CGFloat()
+            var blue = CGFloat()
+            var alpha = CGFloat()
+            UIColor(cgColor: self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+            return [red,green,blue,alpha]
+        }
+    }
+}
+
 extension UIColor {
+    
     var isDarkColor: Bool {
         let RGB = self.cgColor.components
         return (0.2126 * RGB[0] + 0.7152 * RGB[1] + 0.0722 * RGB[2]) < 0.5
@@ -89,10 +103,10 @@ extension UIImage {
             UIGraphicsEndImageContext()
         }
         self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        
         guard let result = UIGraphicsGetImageFromCurrentImageContext() else {
             fatalError("UIImageColors.resizeForUIImageColors failed: UIGraphicsGetImageFromCurrentImageContext returned nil")
         }
+        
         return result
     }
     
@@ -107,9 +121,9 @@ extension UIImage {
         DispatchQueue.global().async {
             let result = self.getColors(scaleDownSize: scaleDownSize)
             
-            DispatchQueue.main.async(execute: { () -> Void in
+            DispatchQueue.main.async {
                 completionHandler(result)
-            })
+            }
         }
     }
     
@@ -181,7 +195,7 @@ extension UIImage {
                     alpha: 1
                 )
                 
-                // A lot of albums have white or black edges from crops, so ignore the first few pixels
+                // A lot of images have white or black edges from crops, so ignore the first few pixels
                 if 5 <= x && x <= 10 {
                     leftEdgeColors.add(color)
                 }
@@ -279,15 +293,3 @@ extension UIImage {
     }
 }
 
-extension CGColor {
-    var components:[CGFloat] {
-        get {
-            var red = CGFloat()
-            var green = CGFloat()
-            var blue = CGFloat()
-            var alpha = CGFloat()
-            UIColor(cgColor: self).getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-            return [red,green,blue,alpha]
-        }
-    }
-}
