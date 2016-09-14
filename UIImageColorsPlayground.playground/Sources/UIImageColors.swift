@@ -25,20 +25,7 @@ class PCCountedColor {
     }
 }
 
-extension UIColor
-{
-    var components:[CGFloat]
-        {
-        get {
-            var red = CGFloat()
-            var green = CGFloat()
-            var blue = CGFloat()
-            var alpha = CGFloat()
-            self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
-            return [red,green,blue,alpha]
-        }
-    }
-    
+extension UIColor {
     var isDarkColor: Bool {
         let RGB = self.cgColor.components
         return (0.2126 * RGB[0] + 0.7152 * RGB[1] + 0.0722 * RGB[2]) < 0.5
@@ -95,8 +82,7 @@ extension UIColor
     
 }
 
-extension UIImage
-{
+extension UIImage {
     private func resizeForUIImageColors(newSize: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         defer {
@@ -117,8 +103,7 @@ extension UIImage
      - parameter scaleDownSize:     Downscale size of image for sampling, if `CGSize.zero` is provided, the sample image is rescaled to a width of 250px and the aspect ratio height.
      - parameter completionHandler: `UIImageColors` for this image.
      */
-    public func getColors(scaleDownSize: CGSize = CGSize.zero, completionHandler: @escaping (UIImageColors) -> Void)
-    {
+    public func getColors(scaleDownSize: CGSize = CGSize.zero, completionHandler: @escaping (UIImageColors) -> Void) {
         DispatchQueue.global().async {
             let result = self.getColors(scaleDownSize: scaleDownSize)
             
@@ -294,10 +279,8 @@ extension UIImage
     }
 }
 
-extension CGColor
-{
-    var components:[CGFloat]
-        {
+extension CGColor {
+    var components:[CGFloat] {
         get {
             var red = CGFloat()
             var green = CGFloat()
