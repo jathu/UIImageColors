@@ -2,6 +2,7 @@
 
 import UIKit
 import XCPlayground
+import UIImageColors
 
 XCPlaygroundPage.currentPage.needsIndefiniteExecution = true
 
