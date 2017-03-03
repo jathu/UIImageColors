@@ -8,6 +8,7 @@ Pod::Spec.new do |spec|
   spec.source      = { :git => "https://github.com/jathu/UIImageColors.git", :tag => spec.version }
 
   spec.ios.deployment_target = "8.0"
+  spec.tvos.deployment_target = "9£.0"
   spec.source_files = "Sources/*.swift"
   spec.requires_arc = true
   spec.pod_target_xcconfig = {
