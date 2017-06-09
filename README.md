@@ -73,7 +73,7 @@ public struct UIImageColors {
 
 ## Installation
 
-You can either directly copy [UIImageColors.swift](sources/UIImageColors.swift) into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
+You can either directly copy [UIImageColors.swift](Sources/UIImageColors.swift) into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
 
 ## License
 
