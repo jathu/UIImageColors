@@ -14,10 +14,10 @@ Asynchronous example:
 let image = UIImage(named: "yeezus.png")
 
 image.getColors { colors in
-  backgroundView.backgroundColor = colors.backgroundColor
-  mainLabel.textColor = colors.primaryColor
-  secondaryLabel.textColor = colors.secondaryColor
-  detailLabel.textColor = colors.detailColor
+  backgroundView.backgroundColor = colors.background
+  mainLabel.textColor = colors.primary
+  secondaryLabel.textColor = colors.secondary
+  detailLabel.textColor = colors.detail
 }
 ```
 
@@ -26,10 +26,10 @@ Synchronous example:
 ```swift
 let colors = UIImage(named: "yeezus.png").getColors()
 
-backgroundView.backgroundColor = colors.backgroundColor
-mainLabel.textColor = colors.primaryColor
-secondaryLabel.textColor = colors.secondaryColor
-detailLabel.textColor = colors.detailColor
+backgroundView.backgroundColor = colors.background
+mainLabel.textColor = colors.primary
+secondaryLabel.textColor = colors.secondary
+detailLabel.textColor = colors.detail
 ```
 
 ## UIImage Methods
@@ -58,16 +58,22 @@ getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void) -> 
 
 Passes a `UIImageColors` object into the closure, with a custom image rescale. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. This runs on the background thread.
 
-## UIImageColors
+## UIImageColors Object
 
-`UIImageColors` is struct that contains four different `UIColor`s.
+`UIImageColors` is struct that contains four different `UIColor` variables.
 
 ```swift
-var backgroundColor
-var primaryColor
-var secondaryColor
-var detailColor
+public struct UIImageColors {
+    public var background: UIColor!
+    public var primary: UIColor!
+    public var secondary: UIColor!
+    public var detail: UIColor!
+}
 ```
+
+## Installation
+
+You can either directly copy [UIImageColors.swift](sources/UIImageColors.swift) into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
 
 ## License
 

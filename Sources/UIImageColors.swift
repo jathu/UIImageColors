@@ -9,10 +9,10 @@
 import UIKit
 
 public struct UIImageColors {
-    public var backgroundColor: UIColor!
-    public var primaryColor: UIColor!
-    public var secondaryColor: UIColor!
-    public var detailColor: UIColor!
+    public var background: UIColor!
+    public var primary: UIColor!
+    public var secondary: UIColor!
+    public var detail: UIColor!
 }
 
 class PCCountedColor {
@@ -219,13 +219,13 @@ extension UIImage {
                 }
             }
         }
-        result.backgroundColor = proposedEdgeColor.color
+        result.background = proposedEdgeColor.color
         
         // Get foreground colors
         enumerator = imageColors.objectEnumerator()
         sortedColors.removeAllObjects()
         sortedColors = NSMutableArray(capacity: imageColors.count)
-        let findDarkTextColor = !result.backgroundColor.isDarkColor
+        let findDarkTextColor = !result.background.isDarkColor
         
         while var kolor = enumerator.nextObject() as? UIColor {
             kolor = kolor.colorWithMinimumSaturation(minSaturation: 0.15)
@@ -239,38 +239,38 @@ extension UIImage {
         for curContainer in sortedColors {
             let kolor = (curContainer as! PCCountedColor).color
             
-            if result.primaryColor == nil {
-                if kolor.isContrastingColor(compareColor: result.backgroundColor) {
-                    result.primaryColor = kolor
+            if result.primary == nil {
+                if kolor.isContrastingColor(compareColor: result.background) {
+                    result.primary = kolor
                 }
-            } else if result.secondaryColor == nil {
-                if !result.primaryColor.isDistinct(compareColor: kolor) || !kolor.isContrastingColor(compareColor: result.backgroundColor) {
+            } else if result.secondary == nil {
+                if !result.primary.isDistinct(compareColor: kolor) || !kolor.isContrastingColor(compareColor: result.background) {
                     continue
                 }
                 
-                result.secondaryColor = kolor
-            } else if result.detailColor == nil {
-                if !result.secondaryColor.isDistinct(compareColor: kolor) || !result.primaryColor.isDistinct(compareColor: kolor) || !kolor.isContrastingColor(compareColor: result.backgroundColor) {
+                result.secondary = kolor
+            } else if result.detail == nil {
+                if !result.secondary.isDistinct(compareColor: kolor) || !result.primary.isDistinct(compareColor: kolor) || !kolor.isContrastingColor(compareColor: result.background) {
                     continue
                 }
                 
-                result.detailColor = kolor
+                result.detail = kolor
                 break
             }
         }
         
-        let isDarkBackgound = result.backgroundColor.isDarkColor
+        let isDarkBackgound = result.background.isDarkColor
         
-        if result.primaryColor == nil {
-            result.primaryColor = isDarkBackgound ? whiteColor:blackColor
+        if result.primary == nil {
+            result.primary = isDarkBackgound ? whiteColor:blackColor
         }
         
-        if result.secondaryColor == nil {
-            result.secondaryColor = isDarkBackgound ? whiteColor:blackColor
+        if result.secondary == nil {
+            result.secondary = isDarkBackgound ? whiteColor:blackColor
         }
         
-        if result.detailColor == nil {
-            result.detailColor = isDarkBackgound ? whiteColor:blackColor
+        if result.detail == nil {
+            result.detail = isDarkBackgound ? whiteColor:blackColor
         }
         
         return result
