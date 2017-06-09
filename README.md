@@ -6,10 +6,6 @@ In other words, it fetches the most dominant and prominent colors.
 
 ![preview](preview.png)
 
-## Installation
-
-You can either directly copy `UIImageColors.swift` into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
-
 ## Example
 
 Asynchronous example:
@@ -62,7 +58,7 @@ getColors(scaleDownSize: CGSize, completionHandler: (UIImageColors) -> Void) -> 
 
 Passes a `UIImageColors` object into the closure, with a custom image rescale. Use smaller sizes for better performance at the cost of quality colors. Use larger sizes for better color sampling and quality at the cost of performance. This runs on the background thread.
 
-## UIImageColors
+## UIImageColors Object
 
 `UIImageColors` is struct that contains four different `UIColor` variables.
 
@@ -74,6 +70,10 @@ public struct UIImageColors {
     public var detail: UIColor!
 }
 ```
+
+## Installation
+
+You can either directly copy [UIImageColors.swift](sources/UIImageColors.swift) into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
 
 ## License
 
