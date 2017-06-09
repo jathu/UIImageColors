@@ -14,10 +14,10 @@ Asynchronous example:
 let image = UIImage(named: "yeezus.png")
 
 image.getColors { colors in
-  backgroundView.backgroundColor = colors.backgroundColor
-  mainLabel.textColor = colors.primaryColor
-  secondaryLabel.textColor = colors.secondaryColor
-  detailLabel.textColor = colors.detailColor
+  backgroundView.backgroundColor = colors.background
+  mainLabel.textColor = colors.primary
+  secondaryLabel.textColor = colors.secondary
+  detailLabel.textColor = colors.detail
 }
 ```
 
@@ -60,13 +60,15 @@ Passes a `UIImageColors` object into the closure, with a custom image rescale. U
 
 ## UIImageColors
 
-`UIImageColors` is struct that contains four different `UIColor`s.
+`UIImageColors` is struct that contains four different `UIColor` variables.
 
 ```swift
-var backgroundColor
-var primaryColor
-var secondaryColor
-var detailColor
+public struct UIImageColors {
+    public var background: UIColor!
+    public var primary: UIColor!
+    public var secondary: UIColor!
+    public var detail: UIColor!
+}
 ```
 
 ## License

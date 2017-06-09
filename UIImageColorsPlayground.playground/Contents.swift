@@ -33,20 +33,20 @@ func makeBox(_ asynchronous: Bool, completionHandler: @escaping (UIView) -> Void
         
         if asynchronous {
             c.albumImageView.image!.getColors { colors in
-                c.backgroundColor = colors.backgroundColor
-                c.albumTitle.textColor = colors.primaryColor
-                c.artistTitle.textColor = colors.secondaryColor
-                c.yearLabel.textColor = colors.detailColor
+                c.backgroundColor = colors.background
+                c.albumTitle.textColor = colors.primary
+                c.artistTitle.textColor = colors.secondary
+                c.yearLabel.textColor = colors.detail
                 if i == maxIterations-1 {
                     completionHandler(box)
                 }
             }
         } else {
             let colors = c.albumImageView.image!.getColors()
-            c.backgroundColor = colors.backgroundColor
-            c.albumTitle.textColor = colors.primaryColor
-            c.artistTitle.textColor = colors.secondaryColor
-            c.yearLabel.textColor = colors.detailColor
+            c.backgroundColor = colors.background
+            c.albumTitle.textColor = colors.primary
+            c.artistTitle.textColor = colors.secondary
+            c.yearLabel.textColor = colors.detail
             if i == maxIterations-1 {
                 completionHandler(box)
             }
