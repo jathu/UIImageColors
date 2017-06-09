@@ -6,6 +6,10 @@ In other words, it fetches the most dominant and prominent colors.
 
 ![preview](preview.png)
 
+## Installation
+
+You can either directly copy `UIImageColors.swift` into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
+
 ## Example
 
 Asynchronous example:
@@ -26,10 +30,10 @@ Synchronous example:
 ```swift
 let colors = UIImage(named: "yeezus.png").getColors()
 
-backgroundView.backgroundColor = colors.backgroundColor
-mainLabel.textColor = colors.primaryColor
-secondaryLabel.textColor = colors.secondaryColor
-detailLabel.textColor = colors.detailColor
+backgroundView.backgroundColor = colors.background
+mainLabel.textColor = colors.primary
+secondaryLabel.textColor = colors.secondary
+detailLabel.textColor = colors.detail
 ```
 
 ## UIImage Methods
