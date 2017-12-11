@@ -2,7 +2,7 @@
 
 iTunes style color fetcher for UIImage. It fetches the most dominant and prominent colors.
 
-![preview](preview.gif)
+![preview](preview.png)
 
 ## Installation
 
