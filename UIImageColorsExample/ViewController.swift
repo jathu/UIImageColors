@@ -17,7 +17,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         Album(albumImage: #imageLiteral(resourceName: "Woman I - Willem de Kooning"), albumName: "Woman I", artistName: "Willem de Kooning", year: 1952),
         Album(albumImage: #imageLiteral(resourceName: "Skull - Jean-Michel Basquiat"), albumName: "Skull", artistName: "Jean-Michel Basquiat", year: 1981),
         Album(albumImage: #imageLiteral(resourceName: "Les Demoiselles d'Avignon - Picasso"), albumName: "Les Demoiselles d'Avignon", artistName: "Pablo Picasso", year: 1907),
-        Album(albumImage: #imageLiteral(resourceName: "Le Rêve - Pablo Picasso"), albumName: "Le Rêve", artistName: "Pablo Picasso", year: 1932),
+        Album(albumImage: #imageLiteral(resourceName: "Le Reve - Pablo Picasso"), albumName: "Le Rêve", artistName: "Pablo Picasso", year: 1932),
         Album(albumImage: #imageLiteral(resourceName: "Mona Lisa - Leonardo da Vinci"), albumName: "Mona Lisa", artistName: "Leonardo da Vinci", year: 1503),
         Album(albumImage: #imageLiteral(resourceName: "No. 210:No. 211 - Mark Rothko"), albumName: "No. 210/211 Orange", artistName: "Mark Rothko", year: 1960),
         Album(albumImage: #imageLiteral(resourceName: "Blue Nude II - Henri Matisse"), albumName: "Blue Nude II", artistName: "Henri Matisse", year: 1952),
