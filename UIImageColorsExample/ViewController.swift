@@ -212,6 +212,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     private func updateView(with album: Album) {
         album.albumImage?.getColors(quality: .high) { colors in
+            guard let colors = colors else { return }
+
             UIView.animate(withDuration: 0.15, animations: {
                 self.view.backgroundColor = colors.background
                 
