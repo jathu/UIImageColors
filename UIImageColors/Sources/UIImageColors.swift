@@ -13,7 +13,7 @@ public typealias UIColor = NSColor
 import UIKit
 #endif
 
-public struct UIImageColors {
+public struct ImageColors {
     public var background: UIColor!
     public var primary: UIColor!
     public var secondary: UIColor!
@@ -202,7 +202,7 @@ extension UIImage {
     }
     
 
-    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors?) -> Void) {
+    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (ImageColors?) -> Void) {
         DispatchQueue.global().async {
             let result = self.getColors(quality: quality)
             DispatchQueue.main.async {
@@ -212,7 +212,7 @@ extension UIImage {
     }
     
 
-    public func getColors(quality: UIImageColorsQuality = .high) -> UIImageColors? {
+    public func getColors(quality: UIImageColorsQuality = .high) -> ImageColors? {
         var scaleDownSize: CGSize = self.size
         if quality != .highest {
             if self.size.width < self.size.height {
@@ -337,7 +337,7 @@ extension UIImage {
             }
         }
         
-        return UIImageColors(
+        return ImageColors(
             background: proposed[0].uicolor,
             primary: proposed[1].uicolor,
             secondary: proposed[2].uicolor,
