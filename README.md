@@ -58,19 +58,10 @@ detailLabel.textColor = colors.detail
 ## Image Methods
 
 ```swift
-getColors() -> ImageColors
-```
-
-```swift
-getColors(quality: ImageColorsQuality) -> ImageColors
-```
-
-```swift
-getColors(_ completion: (ImageColors) -> Void) -> Void
-```
-
-```swift
-getColors(quality: ImageColorsQuality, _ completion: (ImageColors) -> Void) -> Void
+getColors() -> ImageColors?
+getColors(quality: ImageColorsQuality) -> ImageColors?
+getColors(_ completion: (ImageColors?) -> Void) -> Void
+getColors(quality: ImageColorsQuality, _ completion: (ImageColors?) -> Void) -> Void
 ```
 
 ## ImageColors Objects
