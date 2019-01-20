@@ -1,12 +1,33 @@
+![platform: iOS, tvOS and macOS](https://img.shields.io/badge/platform-iOS%20%7C%20tvOS%20%7C%20macOS-lightgrey.svg)
+
 # UIImageColors
 
-iTunes style color fetcher for UIImage. It fetches the most dominant and prominent colors.
+iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most dominant and prominent colors.
 
-![preview](preview.png)
+![iOS preview](preview-ios.png)
+![macOS preview](preview-macos.jpg)
 
 ## Installation
 
-You can either directly copy [UIImageColors.swift](Sources/UIImageColors.swift) into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
+### Manually
+
+Copy [UIImageColors.swift](Sources/UIImageColors.swift) into your project
+
+### [Cocoapods](https://cocoapods.org)
+
+Add UIImageColors to your [`Podfile`](https://cocoapods.org/pods/UIImageColors):
+
+```
+pod 'UIImageColors'
+```
+
+### [Carthage](https://github.com/Carthage/Carthage)
+
+Add UIImageColors to your `Cartfile`:
+
+```
+github "jathu/UIImageColors"
+```
 
 ## Example
 
@@ -34,30 +55,30 @@ secondaryLabel.textColor = colors.secondary
 detailLabel.textColor = colors.detail
 ```
 
-## UIImage Methods
+## Image Methods
 
 ```swift
-getColors() -> UIImageColors
+getColors() -> ImageColors
 ```
 
 ```swift
-getColors(quality: UIImageColorsQuality) -> UIImageColors
+getColors(quality: ImageColorsQuality) -> ImageColors
 ```
 
 ```swift
-getColors(_ completion: (UIImageColors) -> Void) -> Void
+getColors(_ completion: (ImageColors) -> Void) -> Void
 ```
 
 ```swift
-getColors(quality: UIImageColorsQuality, _ completion: (UIImageColors) -> Void) -> Void
+getColors(quality: ImageColorsQuality, _ completion: (ImageColors) -> Void) -> Void
 ```
 
-## UIImageColors Objects
+## ImageColors Objects
 
-`UIImageColors` is struct that contains four different `UIColor` variables.
+`ImageColors` is struct that contains four different `UIColor` (or `NSColor` on macOS) variables.
 
 ```swift
-public struct UIImageColors {
+public struct ImageColors {
     public var background: UIColor!
     public var primary: UIColor!
     public var secondary: UIColor!
@@ -65,12 +86,12 @@ public struct UIImageColors {
 }
 ```
 
-`UIImageColorsQuality` is a enum with four different qualities. The qualities refer to how much the original image is scaled down. `Lowest` implies smaller size and faster performance at the cost of quality colors. `High` implies larger size with slower performance with good colors. `Highest` implies no downscaling and very good colors, but it is very slow.
+`ImageColorsQuality` is a enum with four different qualities. The qualities refer to how much the original image is scaled down. `Lowest` implies smaller size and faster performance at the cost of quality colors. `High` implies larger size with slower performance with good colors. `Highest` implies no downscaling and very good colors, but it is very slow.
 
 The default is set to `high`.
 
 ```swift
-public enum UIImageColorsQuality: CGFloat {
+public enum ImageColorsQuality: CGFloat {
     case lowest = 50 // 50px
     case low = 100 // 100px
     case high = 250 // 250px
