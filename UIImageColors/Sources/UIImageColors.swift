@@ -27,7 +27,7 @@ public struct ImageColors {
     }
 }
 
-public enum UIImageColorsQuality: CGFloat {
+public enum ImageColorsQuality: CGFloat {
     case lowest = 50 // 50px
     case low = 100 // 100px
     case high = 250 // 250px
@@ -202,7 +202,7 @@ extension UIImage {
     }
     
 
-    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (ImageColors?) -> Void) {
+    public func getColors(quality: ImageColorsQuality = .high, _ completion: @escaping (ImageColors?) -> Void) {
         DispatchQueue.global().async {
             let result = self.getColors(quality: quality)
             DispatchQueue.main.async {
@@ -212,7 +212,7 @@ extension UIImage {
     }
     
 
-    public func getColors(quality: UIImageColorsQuality = .high) -> ImageColors? {
+    public func getColors(quality: ImageColorsQuality = .high) -> ImageColors? {
         var scaleDownSize: CGSize = self.size
         if quality != .highest {
             if self.size.width < self.size.height {
