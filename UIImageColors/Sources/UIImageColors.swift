@@ -5,7 +5,13 @@
 //  Created by Jathu Satkunarajah (@jathu) on 2015-06-11 - Toronto
 //
 
+#if os(OSX)
+import AppKit
+public typealias UIImage = NSImage
+public typealias UIColor = NSColor
+#else
 import UIKit
+#endif
 
 public struct UIImageColors {
     public var background: UIColor!
@@ -171,7 +177,17 @@ fileprivate extension Double {
 }
 
 extension UIImage {
-    private func resizeForUIImageColors(newSize: CGSize) -> UIImage {
+    private func resizeForUIImageColors(newSize: CGSize) -> UIImage? {
+        #if os(OSX)
+        let frame = CGRect(origin: .zero, size: newSize)
+        guard let representation = bestRepresentation(for: frame, context: nil, hints: nil) else {
+            return nil
+        }
+        let result = NSImage(size: newSize, flipped: false, drawingHandler: { (_) -> Bool in
+            return representation.draw(in: frame)
+        })
+        return result
+        #else
         UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
         defer {
             UIGraphicsEndImageContext()
@@ -182,10 +198,11 @@ extension UIImage {
         }
         
         return result
+        #endif
     }
     
 
-    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors) -> Void) {
+    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors?) -> Void) {
         DispatchQueue.global().async {
             let result = self.getColors(quality: quality)
             DispatchQueue.main.async {
@@ -195,7 +212,7 @@ extension UIImage {
     }
     
 
-    public func getColors(quality: UIImageColorsQuality = .high) -> UIImageColors {
+    public func getColors(quality: UIImageColorsQuality = .high) -> UIImageColors? {
         var scaleDownSize: CGSize = self.size
         if quality != .highest {
             if self.size.width < self.size.height {
@@ -207,7 +224,14 @@ extension UIImage {
             }
         }
         
-        let cgImage = self.resizeForUIImageColors(newSize: scaleDownSize).cgImage!
+        guard let resizedImage = self.resizeForUIImageColors(newSize: scaleDownSize) else { return nil }
+
+        #if os(OSX)
+        guard let cgImage = resizedImage.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
+        #else
+        guard let cgImage = resizedImage.cgImage else { return nil }
+        #endif
+        
         let width: Int = cgImage.width
         let height: Int = cgImage.height
         

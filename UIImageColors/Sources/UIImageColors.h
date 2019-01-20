@@ -6,7 +6,11 @@
 //  Copyright © 2016 Jathu Satkunarajah (@jathu) - Toronto. All rights reserved.
 //
 
+#if TARGET_OS_MAC
+#import <Appkit/AppKit.h>
+#else
 #import <UIKit/UIKit.h>
+#endif
 
 //! Project version number for UIImageColors.
 FOUNDATION_EXPORT double UIImageColorsVersionNumber;
