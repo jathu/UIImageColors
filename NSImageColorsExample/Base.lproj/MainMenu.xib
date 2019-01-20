@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -10,9 +11,14 @@
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
-        <customObject id="-3" userLabel="Application" customClass="NSApplication"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target">
+        <customObject id="-3" userLabel="Application"/>
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="NSImageColorsExample" customModuleProvider="target">
             <connections>
+                <outlet property="backgroundColorBox" destination="6NE-2h-2vE" id="kQ3-be-imH"/>
+                <outlet property="detailColorBox" destination="2wV-t7-Ogt" id="z0o-5X-Bke"/>
+                <outlet property="imageView" destination="XUu-By-lCl" id="mLU-sk-Tnx"/>
+                <outlet property="primaryColorBox" destination="cYw-Hz-MDb" id="Gux-oX-Tle"/>
+                <outlet property="secondaryColorBox" destination="YW1-bo-fja" id="Vh7-Xc-gHz"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -682,11 +688,152 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="520" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XUu-By-lCl" customClass="DragAndDropImageView" customModule="NSImageColorsExample" customModuleProvider="target">
+                        <rect key="frame" x="17" y="91" width="486" height="252"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="480" id="E7f-LD-xtG"/>
+                        </constraints>
+                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="SAg-fN-AlR"/>
+                        <connections>
+                            <outlet property="delegate" destination="Voe-Tx-rLC" id="Mt0-8n-Pb3"/>
+                        </connections>
+                    </imageView>
+                    <stackView distribution="equalSpacing" orientation="horizontal" alignment="top" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="th2-r0-lDv">
+                        <rect key="frame" x="20" y="20" width="280" height="64"/>
+                        <subviews>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="cYw-Hz-MDb">
+                                <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                <view key="contentView" id="0Bp-MP-rAs">
+                                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5dQ-pE-6Wa">
+                                            <rect key="frame" x="21" y="24" width="22" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="1st" id="9XL-E2-uKK">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5dQ-pE-6Wa" firstAttribute="centerY" secondItem="0Bp-MP-rAs" secondAttribute="centerY" id="VhY-42-Ia7"/>
+                                        <constraint firstItem="5dQ-pE-6Wa" firstAttribute="centerX" secondItem="0Bp-MP-rAs" secondAttribute="centerX" id="bgU-wA-E3v"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="CwH-eb-2EN"/>
+                                    <constraint firstAttribute="width" constant="64" id="wVC-qg-lC1"/>
+                                </constraints>
+                            </box>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="YW1-bo-fja">
+                                <rect key="frame" x="72" y="0.0" width="64" height="64"/>
+                                <view key="contentView" id="MmK-6L-kVd">
+                                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="zG2-ij-02r">
+                                            <rect key="frame" x="18" y="24" width="28" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="2nd" id="D4w-Eb-QCW">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="zG2-ij-02r" firstAttribute="centerY" secondItem="MmK-6L-kVd" secondAttribute="centerY" id="R8s-DZ-fHp"/>
+                                        <constraint firstItem="zG2-ij-02r" firstAttribute="centerX" secondItem="MmK-6L-kVd" secondAttribute="centerX" id="ixQ-Ar-pug"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="64" id="eFn-Mw-9Us"/>
+                                    <constraint firstAttribute="height" constant="64" id="wdo-5j-F6H"/>
+                                </constraints>
+                            </box>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="2wV-t7-Ogt">
+                                <rect key="frame" x="144" y="0.0" width="64" height="64"/>
+                                <view key="contentView" id="XWk-kG-dRX">
+                                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wcl-TT-UL6">
+                                            <rect key="frame" x="13" y="24" width="39" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Detail" id="6zd-0p-SEM">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="wcl-TT-UL6" firstAttribute="centerY" secondItem="XWk-kG-dRX" secondAttribute="centerY" id="A8R-kU-S25"/>
+                                        <constraint firstItem="wcl-TT-UL6" firstAttribute="centerX" secondItem="XWk-kG-dRX" secondAttribute="centerX" id="hZd-qr-vyj"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="DMM-ru-mX8"/>
+                                    <constraint firstAttribute="width" constant="64" id="J2A-bS-096"/>
+                                </constraints>
+                            </box>
+                            <box boxType="custom" borderType="none" cornerRadius="4" title="Background" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="6NE-2h-2vE">
+                                <rect key="frame" x="216" y="0.0" width="64" height="64"/>
+                                <view key="contentView" id="zbq-62-CaM">
+                                    <rect key="frame" x="0.0" y="0.0" width="64" height="64"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UO0-2G-198">
+                                            <rect key="frame" x="21" y="24" width="23" height="17"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="BG" id="LRc-mc-TBA">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="UO0-2G-198" firstAttribute="centerX" secondItem="zbq-62-CaM" secondAttribute="centerX" id="6eN-3F-K99"/>
+                                        <constraint firstItem="UO0-2G-198" firstAttribute="centerY" secondItem="zbq-62-CaM" secondAttribute="centerY" id="r4X-qk-BzJ"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="XLH-HE-AbR"/>
+                                    <constraint firstAttribute="width" constant="64" id="uTp-8Y-Jbr"/>
+                                </constraints>
+                            </box>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="64" id="HvV-7n-NG9"/>
+                        </constraints>
+                        <visibilityPriorities>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                            <integer value="1000"/>
+                        </visibilityPriorities>
+                        <customSpacing>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                            <real value="3.4028234663852886e+38"/>
+                        </customSpacing>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="XUu-By-lCl" secondAttribute="trailing" constant="20" id="2OD-mT-7dS"/>
+                    <constraint firstItem="th2-r0-lDv" firstAttribute="leading" secondItem="XUu-By-lCl" secondAttribute="leading" id="8ZE-FR-eHU"/>
+                    <constraint firstItem="th2-r0-lDv" firstAttribute="top" secondItem="XUu-By-lCl" secondAttribute="bottom" constant="10" id="Efi-hS-yz2"/>
+                    <constraint firstAttribute="bottom" secondItem="th2-r0-lDv" secondAttribute="bottom" constant="20" id="V5T-4a-EYn"/>
+                    <constraint firstItem="XUu-By-lCl" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" id="XfL-wC-IcH"/>
+                    <constraint firstItem="XUu-By-lCl" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" id="qk1-n0-Dgd"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="112" y="-21"/>
         </window>
     </objects>
 </document>
