@@ -7,9 +7,9 @@
 //
 
 #if TARGET_OS_MAC
-#import <Appkit/AppKit.h>
+    #import <Appkit/AppKit.h>
 #else
-#import <UIKit/UIKit.h>
+    #import <UIKit/UIKit.h>
 #endif
 
 //! Project version number for UIImageColors.
