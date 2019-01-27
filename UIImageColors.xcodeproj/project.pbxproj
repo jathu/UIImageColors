@@ -20,15 +20,9 @@
 		87A73ECF1FD0913A00EE147D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87A73ECE1FD0913A00EE147D /* Assets.xcassets */; };
 		87A73ED21FD0913A00EE147D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87A73ED01FD0913A00EE147D /* LaunchScreen.storyboard */; };
 		87A73ED81FD092CD00EE147D /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A73ED71FD092CD00EE147D /* Album.swift */; };
-		B57E05F921F4847A001D5009 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57E05F821F4847A001D5009 /* AppDelegate.swift */; };
-		B57E05FB21F4847B001D5009 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B57E05FA21F4847B001D5009 /* Assets.xcassets */; };
-		B57E05FE21F4847B001D5009 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B57E05FC21F4847B001D5009 /* MainMenu.xib */; };
 		B57E060F21F484E0001D5009 /* NSImageColors.h in Headers */ = {isa = PBXBuildFile; fileRef = B57E060D21F484E0001D5009 /* NSImageColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B57E061221F484E0001D5009 /* NSImageColors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B57E060B21F484E0001D5009 /* NSImageColors.framework */; };
-		B57E061321F484E0001D5009 /* NSImageColors.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B57E060B21F484E0001D5009 /* NSImageColors.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B57E061721F48517001D5009 /* UIImageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035BC84B1DABA027006CA9BE /* UIImageColors.swift */; };
 		B57E061821F4851B001D5009 /* UIImageColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 035BC8491DABA020006CA9BE /* UIImageColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B57E061A21F48A99001D5009 /* DragAndDropImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57E061921F48A99001D5009 /* DragAndDropImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +32,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 035BC83C1DAB9FED006CA9BE;
 			remoteInfo = UIImageColors;
-		};
-		B57E061021F484E0001D5009 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 035BC8341DAB9FED006CA9BE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B57E060A21F484E0001D5009;
-			remoteInfo = NSImageColors;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -56,17 +43,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				871ED4491FD0C12F0062BC12 /* UIImageColors.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B57E060421F484A0001D5009 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B57E061321F484E0001D5009 /* NSImageColors.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -88,16 +64,9 @@
 		87A73ED11FD0913A00EE147D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		87A73ED31FD0913A00EE147D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87A73ED71FD092CD00EE147D /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
-		B57E05F621F4847A001D5009 /* NSImageColorsExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NSImageColorsExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B57E05F821F4847A001D5009 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B57E05FA21F4847B001D5009 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B57E05FD21F4847B001D5009 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		B57E05FF21F4847B001D5009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B57E060021F4847B001D5009 /* NSImageColorsExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NSImageColorsExample.entitlements; sourceTree = "<group>"; };
 		B57E060B21F484E0001D5009 /* NSImageColors.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NSImageColors.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B57E060D21F484E0001D5009 /* NSImageColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSImageColors.h; sourceTree = "<group>"; };
 		B57E060E21F484E0001D5009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B57E061921F48A99001D5009 /* DragAndDropImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragAndDropImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,14 +87,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B57E05F321F4847A001D5009 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B57E061221F484E0001D5009 /* NSImageColors.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B57E060821F484E0001D5009 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -141,7 +102,6 @@
 			children = (
 				B57E05F121F48157001D5009 /* UIImageColors */,
 				87A73EC61FD0913A00EE147D /* UIImageColorsExample */,
-				B57E05F721F4847A001D5009 /* NSImageColorsExample */,
 				B57E060C21F484E0001D5009 /* NSImageColors */,
 				035BC83E1DAB9FED006CA9BE /* Products */,
 				871ED4441FD0B2DC0062BC12 /* Frameworks */,
@@ -153,7 +113,6 @@
 			children = (
 				035BC83D1DAB9FED006CA9BE /* UIImageColors.framework */,
 				87A73EC51FD0913A00EE147D /* UIImageColorsExample.app */,
-				B57E05F621F4847A001D5009 /* NSImageColorsExample.app */,
 				B57E060B21F484E0001D5009 /* NSImageColors.framework */,
 			);
 			name = Products;
@@ -208,19 +167,6 @@
 				035BC84D1DABA02E006CA9BE /* Supporting Files */,
 			);
 			path = UIImageColors;
-			sourceTree = "<group>";
-		};
-		B57E05F721F4847A001D5009 /* NSImageColorsExample */ = {
-			isa = PBXGroup;
-			children = (
-				B57E061921F48A99001D5009 /* DragAndDropImageView.swift */,
-				B57E05F821F4847A001D5009 /* AppDelegate.swift */,
-				B57E05FA21F4847B001D5009 /* Assets.xcassets */,
-				B57E05FC21F4847B001D5009 /* MainMenu.xib */,
-				B57E05FF21F4847B001D5009 /* Info.plist */,
-				B57E060021F4847B001D5009 /* NSImageColorsExample.entitlements */,
-			);
-			path = NSImageColorsExample;
 			sourceTree = "<group>";
 		};
 		B57E060C21F484E0001D5009 /* NSImageColors */ = {
@@ -292,25 +238,6 @@
 			productReference = 87A73EC51FD0913A00EE147D /* UIImageColorsExample.app */;
 			productType = "com.apple.product-type.application";
 		};
-		B57E05F521F4847A001D5009 /* NSImageColorsExample */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B57E060121F4847B001D5009 /* Build configuration list for PBXNativeTarget "NSImageColorsExample" */;
-			buildPhases = (
-				B57E05F221F4847A001D5009 /* Sources */,
-				B57E05F321F4847A001D5009 /* Frameworks */,
-				B57E05F421F4847A001D5009 /* Resources */,
-				B57E060421F484A0001D5009 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B57E061121F484E0001D5009 /* PBXTargetDependency */,
-			);
-			name = NSImageColorsExample;
-			productName = NSImageColorsExample;
-			productReference = B57E05F621F4847A001D5009 /* NSImageColorsExample.app */;
-			productType = "com.apple.product-type.application";
-		};
 		B57E060A21F484E0001D5009 /* NSImageColors */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B57E061421F484E0001D5009 /* Build configuration list for PBXNativeTarget "NSImageColors" */;
@@ -349,10 +276,6 @@
 						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
-					B57E05F521F4847A001D5009 = {
-						CreatedOnToolsVersion = 10.1;
-						ProvisioningStyle = Automatic;
-					};
 					B57E060A21F484E0001D5009 = {
 						CreatedOnToolsVersion = 10.1;
 						ProvisioningStyle = Automatic;
@@ -375,7 +298,6 @@
 				035BC83C1DAB9FED006CA9BE /* UIImageColors */,
 				B57E060A21F484E0001D5009 /* NSImageColors */,
 				87A73EC41FD0913A00EE147D /* UIImageColorsExample */,
-				B57E05F521F4847A001D5009 /* NSImageColorsExample */,
 			);
 		};
 /* End PBXProject section */
@@ -395,15 +317,6 @@
 				87A73ED21FD0913A00EE147D /* LaunchScreen.storyboard in Resources */,
 				87A73ECF1FD0913A00EE147D /* Assets.xcassets in Resources */,
 				87A73ECD1FD0913A00EE147D /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B57E05F421F4847A001D5009 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B57E05FB21F4847B001D5009 /* Assets.xcassets in Resources */,
-				B57E05FE21F4847B001D5009 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -436,15 +349,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		B57E05F221F4847A001D5009 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B57E05F921F4847A001D5009 /* AppDelegate.swift in Sources */,
-				B57E061A21F48A99001D5009 /* DragAndDropImageView.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B57E060721F484E0001D5009 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -460,11 +364,6 @@
 			isa = PBXTargetDependency;
 			target = 035BC83C1DAB9FED006CA9BE /* UIImageColors */;
 			targetProxy = 871ED44A1FD0C12F0062BC12 /* PBXContainerItemProxy */;
-		};
-		B57E061121F484E0001D5009 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B57E060A21F484E0001D5009 /* NSImageColors */;
-			targetProxy = B57E061021F484E0001D5009 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -483,14 +382,6 @@
 				87A73ED11FD0913A00EE147D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		B57E05FC21F4847B001D5009 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B57E05FD21F4847B001D5009 /* Base */,
-			);
-			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -716,57 +607,6 @@
 			};
 			name = Release;
 		};
-		B57E060221F4847B001D5009 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = NSImageColorsExample/NSImageColorsExample.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = NSImageColorsExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jathu.NSImageColorsExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		B57E060321F4847B001D5009 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_ENTITLEMENTS = NSImageColorsExample/NSImageColorsExample.entitlements;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = NSImageColorsExample/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jathu.NSImageColorsExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 		B57E061521F484E0001D5009 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -852,15 +692,6 @@
 			buildConfigurations = (
 				87A73ED41FD0913A00EE147D /* Debug */,
 				87A73ED51FD0913A00EE147D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B57E060121F4847B001D5009 /* Build configuration list for PBXNativeTarget "NSImageColorsExample" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B57E060221F4847B001D5009 /* Debug */,
-				B57E060321F4847B001D5009 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
