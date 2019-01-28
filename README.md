@@ -4,12 +4,11 @@
 
 iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most dominant and prominent colors.
 
-![iOS preview](preview-ios.png)
-![macOS preview](preview-macos.jpg)
+![preview](preview.png)
 
 ## Installation
 
-### Manually
+### Manual
 
 Copy [UIImageColors.swift](Sources/UIImageColors.swift) into your project.
 
