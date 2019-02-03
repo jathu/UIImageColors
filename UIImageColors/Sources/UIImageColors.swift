@@ -13,7 +13,7 @@
     import UIKit
 #endif
 
-public struct ImageColors {
+public struct UIImageColors {
     public var background: UIColor!
     public var primary: UIColor!
     public var secondary: UIColor!
@@ -27,7 +27,7 @@ public struct ImageColors {
     }
 }
 
-public enum ImageColorsQuality: CGFloat {
+public enum UIImageColorsQuality: CGFloat {
     case lowest = 50 // 50px
     case low = 100 // 100px
     case high = 250 // 250px
@@ -204,7 +204,7 @@ extension UIImage {
         }
     #endif
 
-    public func getColors(quality: ImageColorsQuality = .high, _ completion: @escaping (ImageColors?) -> Void) {
+    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors?) -> Void) {
         DispatchQueue.global().async {
             let result = self.getColors(quality: quality)
             DispatchQueue.main.async {
@@ -213,7 +213,7 @@ extension UIImage {
         }
     }
 
-    public func getColors(quality: ImageColorsQuality = .high) -> ImageColors? {
+    public func getColors(quality: UIImageColorsQuality = .high) -> UIImageColors? {
         var scaleDownSize: CGSize = self.size
         if quality != .highest {
             if self.size.width < self.size.height {
@@ -338,7 +338,7 @@ extension UIImage {
             }
         }
         
-        return ImageColors(
+        return UIImageColors(
             background: proposed[0].uicolor,
             primary: proposed[1].uicolor,
             secondary: proposed[2].uicolor,

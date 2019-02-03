@@ -57,18 +57,18 @@ detailLabel.textColor = colors.detail
 ## Image Methods
 
 ```swift
-getColors() -> ImageColors?
-getColors(quality: ImageColorsQuality) -> ImageColors?
-getColors(_ completion: (ImageColors?) -> Void) -> Void
-getColors(quality: ImageColorsQuality, _ completion: (ImageColors?) -> Void) -> Void
+getColors() -> UIImageColors?
+getColors(quality: ImageColorsQuality) -> UIImageColors?
+getColors(_ completion: (UIImageColors?) -> Void) -> Void
+getColors(quality: UIImageColorsQuality, _ completion: (UIImageColors?) -> Void) -> Void
 ```
 
-## ImageColors Objects
+## UIImageColors Objects
 
-`ImageColors` is struct that contains four different `UIColor` (or `NSColor` on macOS) variables.
+`UIImageColors` is struct that contains four different `UIColor` (or `NSColor` on macOS) variables.
 
 ```swift
-public struct ImageColors {
+public struct UIImageColors {
     public var background: UIColor!
     public var primary: UIColor!
     public var secondary: UIColor!
@@ -76,12 +76,12 @@ public struct ImageColors {
 }
 ```
 
-`ImageColorsQuality` is a enum with four different qualities. The qualities refer to how much the original image is scaled down. `Lowest` implies smaller size and faster performance at the cost of quality colors. `High` implies larger size with slower performance with good colors. `Highest` implies no downscaling and very good colors, but it is very slow.
+`UIImageColorsQuality` is a enum with four different qualities. The qualities refer to how much the original image is scaled down. `Lowest` implies smaller size and faster performance at the cost of quality colors. `High` implies larger size with slower performance with good colors. `Highest` implies no downscaling and very good colors, but it is very slow.
 
 The default is set to `high`.
 
 ```swift
-public enum ImageColorsQuality: CGFloat {
+public enum UIImageColorsQuality: CGFloat {
     case lowest = 50 // 50px
     case low = 100 // 100px
     case high = 250 // 250px
