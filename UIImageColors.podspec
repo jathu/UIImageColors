@@ -9,7 +9,7 @@ Pod::Spec.new do |spec|
 
   spec.ios.deployment_target = "8.0"
   spec.tvos.deployment_target = "9.0"
-  spec.macos.deployment_target = "11.0"
+  spec.macos.deployment_target = "10.10"
   spec.source_files = "UIImageColors/Sources/*.swift"
   spec.requires_arc = true
   spec.pod_target_xcconfig = {
