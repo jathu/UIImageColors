@@ -5,7 +5,13 @@
 //  Created by Jathu Satkunarajah (@jathu) on 2015-06-11 - Toronto
 //
 
-import UIKit
+#if os(OSX)
+    import AppKit
+    public typealias UIImage = NSImage
+    public typealias UIColor = NSColor
+#else
+    import UIKit
+#endif
 
 public struct UIImageColors {
     public var background: UIColor!
@@ -171,21 +177,34 @@ fileprivate extension Double {
 }
 
 extension UIImage {
-    private func resizeForUIImageColors(newSize: CGSize) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
-        defer {
-            UIGraphicsEndImageContext()
-        }
-        self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        guard let result = UIGraphicsGetImageFromCurrentImageContext() else {
-            fatalError("UIImageColors.resizeForUIImageColors failed: UIGraphicsGetImageFromCurrentImageContext returned nil.")
-        }
-        
-        return result
-    }
-    
+    #if os(OSX)
+        private func resizeForUIImageColors(newSize: CGSize) -> UIImage? {
+                let frame = CGRect(origin: .zero, size: newSize)
+                guard let representation = bestRepresentation(for: frame, context: nil, hints: nil) else {
+                    return nil
+                }
+                let result = NSImage(size: newSize, flipped: false, drawingHandler: { (_) -> Bool in
+                    return representation.draw(in: frame)
+                })
 
-    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors) -> Void) {
+                return result
+        }
+    #else
+        private func resizeForUIImageColors(newSize: CGSize) -> UIImage? {
+                UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+                defer {
+                    UIGraphicsEndImageContext()
+                }
+                self.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+                guard let result = UIGraphicsGetImageFromCurrentImageContext() else {
+                    fatalError("UIImageColors.resizeForUIImageColors failed: UIGraphicsGetImageFromCurrentImageContext returned nil.")
+                }
+
+                return result
+        }
+    #endif
+
+    public func getColors(quality: UIImageColorsQuality = .high, _ completion: @escaping (UIImageColors?) -> Void) {
         DispatchQueue.global().async {
             let result = self.getColors(quality: quality)
             DispatchQueue.main.async {
@@ -193,9 +212,8 @@ extension UIImage {
             }
         }
     }
-    
 
-    public func getColors(quality: UIImageColorsQuality = .high) -> UIImageColors {
+    public func getColors(quality: UIImageColorsQuality = .high) -> UIImageColors? {
         var scaleDownSize: CGSize = self.size
         if quality != .highest {
             if self.size.width < self.size.height {
@@ -207,7 +225,14 @@ extension UIImage {
             }
         }
         
-        let cgImage = self.resizeForUIImageColors(newSize: scaleDownSize).cgImage!
+        guard let resizedImage = self.resizeForUIImageColors(newSize: scaleDownSize) else { return nil }
+
+        #if os(OSX)
+            guard let cgImage = resizedImage.cgImage(forProposedRect: nil, context: nil, hints: nil) else { return nil }
+        #else
+            guard let cgImage = resizedImage.cgImage else { return nil }
+        #endif
+        
         let width: Int = cgImage.width
         let height: Int = cgImage.height
         

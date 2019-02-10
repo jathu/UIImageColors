@@ -1,12 +1,32 @@
+![platform: iOS, tvOS and macOS](https://img.shields.io/badge/platform-iOS%20%7C%20tvOS%20%7C%20macOS-lightgrey.svg)
+
 # UIImageColors
 
-iTunes style color fetcher for UIImage. It fetches the most dominant and prominent colors.
+iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most dominant and prominent colors.
 
 ![preview](preview.png)
 
 ## Installation
 
-You can either directly copy [UIImageColors.swift](Sources/UIImageColors.swift) into your project *or* you can use CocoaPods: [UIImageColors](https://cocoapods.org/pods/UIImageColors).
+### Manual
+
+Copy [UIImageColors.swift](Sources/UIImageColors.swift) into your project.
+
+### [Cocoapods](https://cocoapods.org)
+
+Add UIImageColors to your [`Podfile`](https://cocoapods.org/pods/UIImageColors):
+
+```
+pod 'UIImageColors'
+```
+
+### [Carthage](https://github.com/Carthage/Carthage)
+
+Add UIImageColors to your `Cartfile`:
+
+```
+github "jathu/UIImageColors"
+```
 
 ## Example
 
@@ -34,27 +54,18 @@ secondaryLabel.textColor = colors.secondary
 detailLabel.textColor = colors.detail
 ```
 
-## UIImage Methods
+## Image Methods
 
 ```swift
-getColors() -> UIImageColors
-```
-
-```swift
-getColors(quality: UIImageColorsQuality) -> UIImageColors
-```
-
-```swift
-getColors(_ completion: (UIImageColors) -> Void) -> Void
-```
-
-```swift
-getColors(quality: UIImageColorsQuality, _ completion: (UIImageColors) -> Void) -> Void
+getColors() -> UIImageColors?
+getColors(quality: ImageColorsQuality) -> UIImageColors?
+getColors(_ completion: (UIImageColors?) -> Void) -> Void
+getColors(quality: UIImageColorsQuality, _ completion: (UIImageColors?) -> Void) -> Void
 ```
 
 ## UIImageColors Objects
 
-`UIImageColors` is struct that contains four different `UIColor` variables.
+`UIImageColors` is struct that contains four different `UIColor` (or `NSColor` on macOS) variables.
 
 ```swift
 public struct UIImageColors {

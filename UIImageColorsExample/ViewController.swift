@@ -89,6 +89,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         b.tintColor = .white
         return b
     }()
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -176,7 +180,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, self.cellSpacing*2, 0, self.cellSpacing*2)
+        return UIEdgeInsets(top: 0, left: self.cellSpacing*2, bottom: 0, right: self.cellSpacing*2)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
@@ -208,6 +212,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     private func updateView(with album: Album) {
         album.albumImage?.getColors(quality: .high) { colors in
+            guard let colors = colors else { return }
+
             UIView.animate(withDuration: 0.15, animations: {
                 self.view.backgroundColor = colors.background
                 

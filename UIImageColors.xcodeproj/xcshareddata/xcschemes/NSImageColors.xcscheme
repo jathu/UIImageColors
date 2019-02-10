@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "035BC83C1DAB9FED006CA9BE"
-               BuildableName = "UIImageColors.framework"
-               BlueprintName = "UIImageColors"
+               BlueprintIdentifier = "B57E060A21F484E0001D5009"
+               BuildableName = "NSImageColors.framework"
+               BlueprintName = "NSImageColors"
                ReferencedContainer = "container:UIImageColors.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "035BC83C1DAB9FED006CA9BE"
-            BuildableName = "UIImageColors.framework"
-            BlueprintName = "UIImageColors"
+            BlueprintIdentifier = "B57E060A21F484E0001D5009"
+            BuildableName = "NSImageColors.framework"
+            BlueprintName = "NSImageColors"
             ReferencedContainer = "container:UIImageColors.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -63,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "035BC83C1DAB9FED006CA9BE"
-            BuildableName = "UIImageColors.framework"
-            BlueprintName = "UIImageColors"
+            BlueprintIdentifier = "B57E060A21F484E0001D5009"
+            BuildableName = "NSImageColors.framework"
+            BlueprintName = "NSImageColors"
             ReferencedContainer = "container:UIImageColors.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
