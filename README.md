@@ -10,7 +10,7 @@ iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most domi
 
 ### Manual
 
-Copy [UIImageColors.swift](Sources/UIImageColors.swift) into your project.
+Copy [UIImageColors.swift](UIImageColors/Sources/UIImageColors.swift) into your project.
 
 ### [Cocoapods](https://cocoapods.org)
 
