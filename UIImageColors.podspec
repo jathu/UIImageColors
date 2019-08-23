@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name        = "UIImageColors"
-  spec.version     = "2.1.0"
+  spec.version     = "2.2.0"
   spec.license     = "MIT"
   spec.summary     = "iTunes style color fetcher for UIImage and NSImage."
   spec.homepage    = "https://github.com/jathu/UIImageColors"
@@ -13,6 +13,6 @@ Pod::Spec.new do |spec|
   spec.source_files = "UIImageColors/Sources/*.swift"
   spec.requires_arc = true
   spec.pod_target_xcconfig = {
-    "SWIFT_VERSION" => "4.2"
+    "SWIFT_VERSION" => "5.0"
   }
 end

@@ -1,3 +1,4 @@
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)
 ![platform: iOS, tvOS and macOS](https://img.shields.io/badge/platform-iOS%20%7C%20tvOS%20%7C%20macOS-lightgrey.svg)
 
 # UIImageColors
