@@ -3,3 +3,4 @@
 **/xcuserdata
 *.pbxuser
 *.mode1v3
+.swiftpm
