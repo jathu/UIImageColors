@@ -247,7 +247,7 @@ extension UIImage {
         let imageColors = NSCountedSet(capacity: width*height)
         for x in 0..<width {
             for y in 0..<height {
-                let pixel: Int = ((width * y) + x) * 4
+                let pixel: Int = y * cgImage.bytesPerRow + x * 4
                 if 127 <= data[pixel+3] {
                     imageColors.add((Double(data[pixel+2])*1000000)+(Double(data[pixel+1])*1000)+(Double(data[pixel])))
                 }
