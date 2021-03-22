@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name        = "UIImageColors"
-  spec.version     = "2.2.0"
+  spec.version     = "2.3.0"
   spec.license     = "MIT"
   spec.summary     = "iTunes style color fetcher for UIImage and NSImage."
   spec.homepage    = "https://github.com/jathu/UIImageColors"
