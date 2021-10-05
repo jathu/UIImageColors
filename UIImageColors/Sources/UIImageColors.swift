@@ -179,25 +179,24 @@ fileprivate extension Double {
 
 extension UIImage {
     
-    func resize(to newSize: CGSize) -> CGImage? {
+    func resizedCGImage(size: CGSize) -> CGImage? {
         #if canImport(AppKit)
         // macOS creates different results compared to iOS!
         // Using the iOS way (with CGContext, https://stackoverflow.com/a/27613155/11342085) is not working at all.
-        let frame = CGRect(origin: .zero, size: newSize)
+        let frame = CGRect(origin: .zero, size: size)
         guard let representation = bestRepresentation(for: frame, context: nil, hints: nil) else { return nil }
-        let result = NSImage(size: newSize, flipped: false) { _ in
+        let result = NSImage(size: size, flipped: false) { _ in
             return representation.draw(in: frame)
         }
         return result.cgImage(forProposedRect: nil, context: nil, hints: nil)
         #elseif canImport(UIKit)
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
         defer {
             UIGraphicsEndImageContext()
         }
         let context = UIGraphicsGetCurrentContext()
         guard let cgImage = cgImage else { return nil }
-        context?.draw(cgImage, in: CGRect(origin: .zero, size: newSize))
-        UIGraphicsEndImageContext()
+        context?.draw(cgImage, in: CGRect(origin: .zero, size: size))
         return context?.makeImage()
         #endif
     }
@@ -224,25 +223,25 @@ extension UIImage {
         }
         
         #if canImport(AppKit)
-        guard let resizedImage = resize(to: scaleDownSize) else { return nil }
+        guard let resizedCGImage = resizedCGImage(size: scaleDownSize) else { return nil }
         #elseif canImport(UIKit)
-        guard let resizedImage = resize(to: scaleDownSize) else { return nil }
+        guard let resizedCGImage = resizedCGImage(size: scaleDownSize) else { return nil }
         #endif
         
-        let width: Int = resizedImage.width
-        let height: Int = resizedImage.height
+        let width: Int = resizedCGImage.width
+        let height: Int = resizedCGImage.height
         
         let threshold = Int(CGFloat(height)*0.01)
         var proposed: [Double] = [-1,-1,-1,-1]
         
-        guard let data = CFDataGetBytePtr(resizedImage.dataProvider!.data) else {
+        guard let data = CFDataGetBytePtr(resizedCGImage.dataProvider!.data) else {
             fatalError("UIImageColors.getColors failed: could not get cgImage data.")
         }
         
         let imageColors = NSCountedSet(capacity: width*height)
         for x in 0..<width {
             for y in 0..<height {
-                let pixel: Int = (y * resizedImage.bytesPerRow) + (x * 4)
+                let pixel: Int = (y * resizedCGImage.bytesPerRow) + (x * 4)
                 if 127 <= data[pixel+3] {
                     imageColors.add((Double(data[pixel+2])*1000000)+(Double(data[pixel+1])*1000)+(Double(data[pixel])))
                 }
