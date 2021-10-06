@@ -11,7 +11,7 @@ iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most domi
 
 ### Manual
 
-Copy [UIImageColors.swift](UIImageColors/Sources/UIImageColors.swift) into your project.
+Copy the [Sources-folder](Sources/) into your project.
 
 ### [Cocoapods](https://cocoapods.org)
 
@@ -37,10 +37,14 @@ Asynchronous example:
 let image = UIImage(named: "yeezus.png")
 
 image.getColors { colors in
-  backgroundView.backgroundColor = colors.background
-  mainLabel.textColor = colors.primary
-  secondaryLabel.textColor = colors.secondary
-  detailLabel.textColor = colors.detail
+    backgroundView.backgroundColor = colors.background
+    mainLabel.textColor = colors.primary
+    secondaryLabel.textColor = colors.secondary
+    detailLabel.textColor = colors.detail
+}
+
+if #available(iOS 15.0) {
+    let colors = await image.colors()
 }
 ```
 
@@ -55,7 +59,7 @@ secondaryLabel.textColor = colors.secondary
 detailLabel.textColor = colors.detail
 ```
 
-## Image Methods
+## UIImage/NSImage Instance Methods
 
 ```swift
 getColors() -> UIImageColors?
