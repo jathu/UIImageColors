@@ -1,6 +1,7 @@
 .DS_Store
-
-**/xcuserdata
-*.pbxuser
-*.mode1v3
-.swiftpm
+/.build
+/Packages
+/*.xcodeproj
+xcuserdata/
+DerivedData/
+.swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
