@@ -13,11 +13,14 @@ let package = Package(
     products: [
         .library(
             name: "UIImageColors",
-            targets: ["UIImageColors"])
+            targets: ["UIImageColors"]),
+        .library(
+            name: "UIImageColorsObjc",
+            targets: ["UIImageColorsObjc"])
     ],
     targets: [
-        .target(
-            name: "UIImageColors",
-            path: "UIImageColors")
+        .target(name: "UIImageColors"),
+        .target(name: "UIImageColorsObjc",
+                dependencies: [.target(name: "UIImageColors")])
     ]
 )
