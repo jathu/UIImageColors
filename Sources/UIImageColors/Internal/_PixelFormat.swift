@@ -7,14 +7,20 @@
 
 import CoreGraphics
 
+
+// MARK: - _PixelFormat
+
+internal enum _PixelFormat {
+    case abgr
+    case argb
+    case bgra
+    case rgba
+}
+
+
+// MARK: - CGBitmapInfo + pixelFormat
+
 extension CGBitmapInfo {
-    
-    internal enum _PixelFormat {
-        case abgr
-        case argb
-        case bgra
-        case rgba
-    }
     
     /// [Source](https://newbedev.com/getting-pixel-format-from-cgimage)
     internal var pixelFormat: _PixelFormat? {

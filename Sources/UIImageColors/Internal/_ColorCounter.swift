@@ -85,9 +85,9 @@ extension _ColorCounter {
 }
 
 
-// MARK: - CGBitmapInfo + rgba(from:)
+// MARK: - _PixelFormat + rgba(from:)
 
-extension CGBitmapInfo._PixelFormat {
+extension _PixelFormat {
     
     internal func rgba(from bytes: (UInt8, UInt8, UInt8, UInt8)) -> (UInt8, UInt8, UInt8, UInt8) {
         switch self {
