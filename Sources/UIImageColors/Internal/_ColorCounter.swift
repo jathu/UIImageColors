@@ -18,17 +18,22 @@ internal struct _ColorCounter {
     private var _imageRBGCounts: [_RGB: Int] = [:]
     
     internal init?(cgImage: CGImage) {
-        guard let data = cgImage.dataProvider?.data as Data? else { return nil }
+        guard cgImage.colorSpace?.model == .rgb else { return nil }
+        guard let pixelFormat = cgImage.bitmapInfo.pixelFormat else { return nil }
+        guard let data = cgImage.dataProvider?.data, let bytes = CFDataGetBytePtr(data) else { return nil }
         
         self.threshold = Int(CGFloat(cgImage.height) * 0.01)
         
+        let bytesPerPixel = cgImage.bitsPerPixel / cgImage.bitsPerComponent
+        
         for x in 0..<cgImage.width {
             for y in 0..<cgImage.height {
-                let pixel: Int = (y * cgImage.bytesPerRow) + (x * 4)
-                if data[pixel + 3] > 127 {
-                    let red = Float(data[pixel + 2])
-                    let green = Float(data[pixel + 1])
-                    let blue = Float(data[pixel])
+                let offset = (y * cgImage.bytesPerRow) + (x * bytesPerPixel)
+                let rgba = pixelFormat.rgba(from: (bytes[offset], bytes[offset + 1], bytes[offset + 2], bytes[offset + 3]))
+                if rgba.3 > 60 {
+                    let red = Float(rgba.0)
+                    let green = Float(rgba.1)
+                    let blue = Float(rgba.2)
                     let rgb = _RGB(red: red, green: green, blue: blue)
                     _imageRBGCounts[rgb] = (_imageRBGCounts[rgb] ?? 0) + 1
                 }
@@ -73,5 +78,24 @@ extension _ColorCounter {
     internal struct _Count {
         let rgb: _RGB
         let count: Int
+    }
+}
+
+
+// MARK: - CGBitmapInfo + rgba(from:)
+
+extension CGBitmapInfo._PixelFormat {
+    
+    internal func rgba(from bytes: (UInt8, UInt8, UInt8, UInt8)) -> (UInt8, UInt8, UInt8, UInt8) {
+        switch self {
+        case .abgr:
+            return (bytes.3, bytes.2, bytes.1, bytes.0)
+        case .argb:
+            return (bytes.3, bytes.0, bytes.1, bytes.2)
+        case .bgra:
+            return (bytes.2, bytes.1, bytes.0, bytes.3)
+        case .rgba:
+            return (bytes.0, bytes.1, bytes.2, bytes.3)
+        }
     }
 }
