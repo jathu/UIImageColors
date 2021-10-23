@@ -43,13 +43,12 @@ extension NSImage {
     ///
     /// - Parameter quality: The scale quality. Default is `ScaleQuality.high`.
     /// - Returns: The ``Colors`` from the image.
-    public func getColors(quality: ScaleQuality = .high, _ completion: @escaping (Colors?) -> Void) {
-        DispatchQueue.global().async {
-            let result = self.getColors(quality: quality)
-            DispatchQueue.main.async {
-                completion(result)
-            }
-        }
+    public func getColors(quality: ScaleQuality = .high) -> Colors? {
+        let scaledSize = quality._scaleSize(size)
+        guard let resizedCGImage = _resizedCGImage(size: scaledSize) else { return nil }
+        guard let counter = _ColorCounter(cgImage: resizedCGImage) else { return nil }
+        let analyzer = _ColorAnalyzer(counter: counter)
+        return analyzer?.colors
     }
     
     /// Creates the ``Colors`` asynchronously.
@@ -60,12 +59,13 @@ extension NSImage {
     /// - Parameters:
     ///   - quality: The scale quality. Default is `ScaleQuality.high`.
     ///   - completion: The completion block with the ``Colors``.
-    public func getColors(quality: ScaleQuality = .high) -> Colors? {
-        let scaledSize = quality._scaleSize(size)
-        guard let resizedCGImage = _resizedCGImage(size: scaledSize) else { return nil }
-        guard let counter = _ColorCounter(cgImage: resizedCGImage) else { return nil }
-        let analyzer = _ColorAnalyzer(counter: counter)
-        return analyzer?.colors
+    public func getColors(quality: ScaleQuality = .high, _ completion: @escaping (Colors?) -> Void) {
+        DispatchQueue.global().async {
+            let result = self.getColors(quality: quality)
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
     }
     
     // TODO: Make this available when macOS 12 is out.
@@ -89,14 +89,34 @@ extension NSImage {
 extension NSImage {
     
     internal func _resizedCGImage(size: CGSize) -> CGImage? {
-        // macOS creates different results compared to iOS!
-        // Using the iOS way (with CGContext, https://stackoverflow.com/a/27613155/11342085) is not working at all.
-        let frame = CGRect(origin: .zero, size: size)
-        guard let representation = bestRepresentation(for: frame, context: nil, hints: nil) else { return nil }
-        let result = NSImage(size: size, flipped: false) { _ in
-            return representation.draw(in: frame)
+        guard self.size != size else {
+            return cgImage(forProposedRect: nil, context: nil, hints: nil)
         }
-        return result.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        
+        if let bitmapImageRep = NSBitmapImageRep(
+            bitmapDataPlanes: nil,
+            pixelsWide: Int(size.width),
+            pixelsHigh: Int(size.height),
+            bitsPerSample: 8,
+            samplesPerPixel: 4,
+            hasAlpha: true,
+            isPlanar: false,
+            colorSpaceName: .calibratedRGB,
+            bytesPerRow: 0,
+            bitsPerPixel: 0
+        ) {
+            bitmapImageRep.size = size
+            NSGraphicsContext.saveGraphicsState()
+            NSGraphicsContext.current = NSGraphicsContext(bitmapImageRep: bitmapImageRep)
+            draw(in: NSRect(origin: .zero, size: size), from: .zero, operation: .copy, fraction: 1)
+            NSGraphicsContext.restoreGraphicsState()
+            
+            let resizedImage = NSImage(size: size)
+            resizedImage.addRepresentation(bitmapImageRep)
+            return resizedImage.cgImage(forProposedRect: nil, context: nil, hints: nil)
+        }
+        
+        return nil
     }
 }
 
