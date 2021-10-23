@@ -24,13 +24,16 @@ internal struct _ColorCounter {
         
         self.threshold = Int(CGFloat(cgImage.height) * 0.01)
         
+        // Accessing the raw pixels
+        // https://www.ralfebert.de/ios/examples/image-processing/uiimage-raw-pixels/
+        
         let bytesPerPixel = cgImage.bitsPerPixel / cgImage.bitsPerComponent
         
         for x in 0..<cgImage.width {
             for y in 0..<cgImage.height {
                 let offset = (y * cgImage.bytesPerRow) + (x * bytesPerPixel)
                 let rgba = pixelFormat.rgba(from: (bytes[offset], bytes[offset + 1], bytes[offset + 2], bytes[offset + 3]))
-                if rgba.3 > 60 {
+                if rgba.3 > 127 {
                     let red = Float(rgba.0)
                     let green = Float(rgba.1)
                     let blue = Float(rgba.2)
