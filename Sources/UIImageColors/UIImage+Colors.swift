@@ -88,6 +88,7 @@ extension UIImage {
 extension UIImage {
     
     internal func _resizedCGImage(size: CGSize) -> CGImage? {
+        guard self.size != size else { return cgImage }
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         defer {
             UIGraphicsEndImageContext()
