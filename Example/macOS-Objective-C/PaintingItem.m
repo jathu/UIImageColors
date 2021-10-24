@@ -24,7 +24,7 @@
 - (void)setImage:(NSImage *)image {
     [self._imageView.layer setContents:image];
     [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(NSImageColors * _Nullable colors) {
-        if (colors != nil) {
+        if(colors != nil) {
             [self.view.layer setBackgroundColor:colors.background.CGColor];
             [self.mainLabel setTextColor:colors.primary];
             [self.secondaryLabel setTextColor:colors.secondary];

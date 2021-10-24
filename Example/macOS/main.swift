@@ -10,8 +10,7 @@ import AppKit
 let delegate = AppDelegate()
 NSApplication.shared.delegate = delegate
 
-let menu = NSMenu()
-menu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
-NSApplication.shared.mainMenu = menu
+let mainMenu = MainMenu()
+NSApplication.shared.mainMenu = mainMenu
 
 _ = NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)

@@ -36,6 +36,8 @@
 		9DCF28562724A90900B62295 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9D6B3BF0271921E200B4BD5F /* Assets.xcassets */; };
 		9DCF28572724A90900B62295 /* Painting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAD3A1A27172AA00046BB86 /* Painting.swift */; };
 		9DCF28592724AF0D00B62295 /* UIImageColorsObjc in Frameworks */ = {isa = PBXBuildFile; productRef = 9DCF28582724AF0D00B62295 /* UIImageColorsObjc */; };
+		9DCF285B2724E34B00B62295 /* MainMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF285A2724E34B00B62295 /* MainMenu.swift */; };
+		9DCF285E2724E41700B62295 /* MainMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DCF285D2724E41700B62295 /* MainMenu.m */; };
 		9DE2C92C2713874200B99BDF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE2C92B2713874200B99BDF /* AppDelegate.swift */; };
 		9DE2C92E2713874200B99BDF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE2C92D2713874200B99BDF /* SceneDelegate.swift */; };
 		9DE2C9302713874200B99BDF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE2C92F2713874200B99BDF /* ViewController.swift */; };
@@ -78,6 +80,9 @@
 		9DCF28512724A19000B62295 /* NSLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSLabel.m; sourceTree = "<group>"; };
 		9DCF28532724A34500B62295 /* PaintingItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaintingItem.h; sourceTree = "<group>"; };
 		9DCF28542724A34500B62295 /* PaintingItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaintingItem.m; sourceTree = "<group>"; };
+		9DCF285A2724E34B00B62295 /* MainMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenu.swift; sourceTree = "<group>"; };
+		9DCF285C2724E41700B62295 /* MainMenu.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainMenu.h; sourceTree = "<group>"; };
+		9DCF285D2724E41700B62295 /* MainMenu.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainMenu.m; sourceTree = "<group>"; };
 		9DE2C9282713874200B99BDF /* iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE2C92B2713874200B99BDF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DE2C92D2713874200B99BDF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -127,6 +132,7 @@
 			isa = PBXGroup;
 			children = (
 				9D125896271B53E90027A760 /* main.swift */,
+				9DCF285A2724E34B00B62295 /* MainMenu.swift */,
 				9DAD3A42271790550046BB86 /* AppDelegate.swift */,
 				9DAD3A44271790550046BB86 /* ViewController.swift */,
 				9DCF28312723699D00B62295 /* PaintingItem.swift */,
@@ -158,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				9DCF284A27249AD400B62295 /* main.m */,
+				9DCF285C2724E41700B62295 /* MainMenu.h */,
+				9DCF285D2724E41700B62295 /* MainMenu.m */,
 				9DCF283F27249AD300B62295 /* AppDelegate.h */,
 				9DCF284027249AD300B62295 /* AppDelegate.m */,
 				9DCF284227249AD300B62295 /* ViewController.h */,
@@ -406,6 +414,7 @@
 			files = (
 				9D125897271B53E90027A760 /* main.swift in Sources */,
 				9DAD3A502717905C0046BB86 /* Painting.swift in Sources */,
+				9DCF285B2724E34B00B62295 /* MainMenu.swift in Sources */,
 				9DAD3A45271790550046BB86 /* ViewController.swift in Sources */,
 				9DCF28322723699D00B62295 /* PaintingItem.swift in Sources */,
 				9DAD3A43271790550046BB86 /* AppDelegate.swift in Sources */,
@@ -430,6 +439,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DCF285E2724E41700B62295 /* MainMenu.m in Sources */,
 				9DCF284427249AD300B62295 /* ViewController.m in Sources */,
 				9DCF28522724A19000B62295 /* NSLabel.m in Sources */,
 				9DCF28552724A34500B62295 /* PaintingItem.m in Sources */,

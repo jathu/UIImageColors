@@ -37,7 +37,7 @@
 #pragma mark - Setter
 
 - (void)setCurrentIndex:(NSInteger)currentIndex {
-    if (currentIndex < 0) {
+    if(currentIndex < 0) {
         _currentIndex = Painting.examples.count - 1;
     } else if (currentIndex > Painting.examples.count - 1) {
         _currentIndex = 0;
