@@ -5,9 +5,6 @@
 //  Created by Felix Herrmann on 14.10.21.
 //
 
-import Foundation
-import UIImageColors
-
 #if canImport(AppKit)
 
 import AppKit
