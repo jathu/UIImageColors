@@ -1,0 +1,49 @@
+name: Xcode Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  workflow_dispatch:
+
+jobs:
+  build-macos:
+    runs-on: macos-11
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build macOS
+        run: xcodebuild -scheme UIImageColors-Package -destination 'platform=macOS'
+      - name: Run macOS tests
+        run: xcodebuild -scheme UIImageColors-Package -destination 'platform=macOS' test
+  
+  build-ios:
+    runs-on: macos-11
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build iOS
+        run: xcodebuild -scheme UIImageColors-Package -destination 'name=iPhone 12'
+      - name: Run iOS tests
+        run: xcodebuild -scheme UIImageColors-Package -destination 'name=iPhone 12' test
+  
+  build-tvos:
+    runs-on: macos-11
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build tvOS
+        run: xcodebuild -scheme UIImageColors-Package -destination 'name=Apple TV'
+      - name: Run tvOS tests
+        run: xcodebuild -scheme UIImageColors-Package -destination 'name=Apple TV' test
+  
+  build-watchos:
+    runs-on: macos-11
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build watchOS
+        run: xcodebuild -scheme UIImageColors-Package -destination 'name=Apple Watch Series 6 - 44mm'
+      - name: Run watchOS tests
+        run: xcodebuild -scheme UIImageColors-Package -destination 'name=Apple Watch Series 6 - 44mm' test
