@@ -15,7 +15,7 @@ import UIImageColors
 @objcMembers
 public final class UIImageColorsObjc: NSObject {
     
-    /// The most common, non-back/white color.
+    /// The most common, non-black/white color.
     public let background: UIColor
     
     /// The most common color that is contrasting with the background.

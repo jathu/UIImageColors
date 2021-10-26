@@ -17,7 +17,7 @@ extension NSImage {
     /// Represents the most common colors inside an image.
     public struct Colors {
         
-        /// The most common, non-back/white color.
+        /// The most common, non-black/white color.
         public let background: NSColor
         
         /// The most common color that is contrasting with the background.
