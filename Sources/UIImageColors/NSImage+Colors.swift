@@ -68,19 +68,18 @@ extension NSImage {
         }
     }
     
-    // TODO: Make this available when macOS 12 is out.
-//    /// Creates the ``Colors`` asynchronously.
-//    ///
-//    /// - Parameter quality: The scale quality. Default is `ScaleQuality.high`.
-//    /// - Returns: The ``Colors`` from the image asynchronously.
-//    @available(macOS 12.0, *)
-//    public func colors(quality: ScaleQuality = .high) async -> Colors? {
-//        await withUnsafeContinuation { continuation in
-//            getColors { colors in
-//                continuation.resume(returning: colors)
-//            }
-//        }
-//    }
+    /// Creates the ``Colors`` asynchronously.
+    ///
+    /// - Parameter quality: The scale quality. Default is `ScaleQuality.high`.
+    /// - Returns: The ``Colors`` from the image asynchronously.
+    @available(macOS 12.0, *)
+    public func colors(quality: ScaleQuality = .high) async -> Colors? {
+        await withUnsafeContinuation { continuation in
+            getColors(quality: quality) { colors in
+                continuation.resume(returning: colors)
+            }
+        }
+    }
 }
 
 
