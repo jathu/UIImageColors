@@ -5,7 +5,10 @@
 
 iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most dominant and prominent colors.
 
-![preview](preview.png)
+<p float="left">
+  <img src="/preview-iphone.png" width="30%"/>
+  <img src="/preview-macos.png" width="65%"/> 
+</p>
 
 ## Installation
 
@@ -42,10 +45,11 @@ image.getColors { colors in
     secondaryLabel.textColor = colors.secondary
     detailLabel.textColor = colors.detail
 }
+```
+or with `async/await`
 
-if #available(iOS 15.0) {
-    let colors = await image.colors()
-}
+```swift
+let colors = await image.colors()
 ```
 
 Synchronous example:
