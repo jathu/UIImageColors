@@ -12,7 +12,22 @@ import AppKit
 #endif
 
 
-// MARK: - Color + rgb
+// MARK: - Example Path
+
+internal func examplePath() -> String {
+    var url = URL(fileURLWithPath: #filePath)
+    url.deleteLastPathComponent()
+    url.deleteLastPathComponent()
+    url.deleteLastPathComponent()
+    url.appendPathComponent("Example")
+    url.appendPathComponent("Shared")
+    url.appendPathComponent("Assets.xcassets")
+    url.appendPathComponent("Calvin Klein - Kaws.imageset/Calvin Klein - Kaws.jpg")
+    return url.path
+}
+
+
+// MARK: - Color + RGB
 
 #if canImport(UIKit)
 

@@ -15,18 +15,6 @@ import AppKit
 
 final class UIImageColorsTests: XCTestCase {
     
-    private var examplePath: String {
-        var url = URL(fileURLWithPath: #filePath)
-        url.deleteLastPathComponent()
-        url.deleteLastPathComponent()
-        url.deleteLastPathComponent()
-        url.appendPathComponent("Example")
-        url.appendPathComponent("Shared")
-        url.appendPathComponent("Assets.xcassets")
-        url.appendPathComponent("Calvin Klein - Kaws.imageset/Calvin Klein - Kaws.jpg")
-        return url.path
-    }
-    
     #if canImport(UIKit)
     var image: UIImage!
     #elseif canImport(AppKit)
@@ -37,9 +25,9 @@ final class UIImageColorsTests: XCTestCase {
         super.setUp()
         
         #if canImport(UIKit)
-        image = UIImage(contentsOfFile: examplePath)
+        image = UIImage(contentsOfFile: examplePath())
         #elseif canImport(AppKit)
-        image = NSImage(contentsOfFile: examplePath)
+        image = NSImage(contentsOfFile: examplePath())
         #endif
         
         if image == nil {
