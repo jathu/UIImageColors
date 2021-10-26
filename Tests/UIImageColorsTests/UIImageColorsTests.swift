@@ -128,7 +128,7 @@ final class UIImageColorsTests: XCTestCase {
         #if canImport(UIKit)
         XCTAssertTrue(colors.background.rgb == (232, 232, 232))
         XCTAssertTrue(primary.rgb == (0, 0, 0))
-        XCTAssertTrue(secondary.rgb == (254, 82, 127) || secondary.rgb == (255, 85, 127)) // secondary value is not consisten
+        XCTAssertFalse(secondary.rgb == (0, 0, 0)) // secondary value is not consisten
         XCTAssertFalse(detail.rgb == (0, 0, 0)) // detail value is not consistent
         #elseif canImport(AppKit)
         XCTAssertTrue(colors.background.rgb == (228, 228, 228) || colors.background.rgb == (226, 226, 226)) // background value is not consisten
