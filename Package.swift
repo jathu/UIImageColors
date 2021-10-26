@@ -20,7 +20,14 @@ let package = Package(
     ],
     targets: [
         .target(name: "UIImageColors"),
-        .target(name: "UIImageColorsObjc",
-                dependencies: [.target(name: "UIImageColors")])
+        .target(
+            name: "UIImageColorsObjc",
+            dependencies: [.target(name: "UIImageColors")]),
+        .testTarget(
+            name: "UIImageColorsTests",
+            dependencies: [
+                .target(name: "UIImageColors"),
+                .target(name: "UIImageColorsObjc")
+            ])
     ]
 )
