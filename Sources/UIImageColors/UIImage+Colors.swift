@@ -75,7 +75,7 @@ extension UIImage {
     @available(iOS 15.0, tvOS 15.0, watchOS 8.0, *)
     public func colors(quality: ScaleQuality = .high) async -> Colors? {
         await withUnsafeContinuation { continuation in
-            getColors { colors in
+            getColors(quality: quality) { colors in
                 continuation.resume(returning: colors)
             }
         }
