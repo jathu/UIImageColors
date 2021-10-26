@@ -28,7 +28,7 @@ extension UIImage {
         /// Also must distinguish itself from the ``primary`` color.
         public let secondary: UIColor?
         
-        /// The thrid most common color that is contrasting with the background.
+        /// The third most common color that is contrasting with the background.
         ///
         /// Also must distinguish itself from the ``primary`` and ``secondary`` color.
         public let detail: UIColor?

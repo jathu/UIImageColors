@@ -29,7 +29,7 @@ public final class NSImageColorsObjc: NSObject {
     /// Also must distinguish itself from the ``primary`` color.
     public let secondary: NSColor?
     
-    /// The thrid most common color that is contrasting with the background.
+    /// The third most common color that is contrasting with the background.
     ///
     /// Also must distinguish itself from the ``primary`` and ``secondary`` color.
     public let detail: NSColor?
