@@ -68,6 +68,7 @@ extension NSImage {
         }
     }
     
+    #if canImport(_Concurrency)
     /// Creates the ``Colors`` asynchronously.
     ///
     /// - Parameter quality: The scale quality. Default is `ScaleQuality.high`.
@@ -80,6 +81,7 @@ extension NSImage {
             }
         }
     }
+    #endif
 }
 
 
