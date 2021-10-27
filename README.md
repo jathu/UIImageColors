@@ -6,8 +6,8 @@
 iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most dominant and prominent colors.
 
 <p float="left">
-  <img src="/preview-iphone.png" width="30%"/>
-  <img src="/preview-macos.png" width="65%"/> 
+    <img src="/preview-iphone.png" width="30%"/>
+    <img src="/preview-macos.png" width="65%"/> 
 </p>
 
 ## Installation
@@ -20,7 +20,7 @@ Add the following to the dependencies of your `Package.swift`:
 .package(url: "https://github.com/jathu/UIImageColors.git", from: "x.x.x")
 ```
 
-### [Cocoapods](https://cocoapods.org)
+### [CocoaPods](https://cocoapods.org)
 
 Add UIImageColors to your [`Podfile`](https://cocoapods.org/pods/UIImageColors):
 
@@ -46,127 +46,127 @@ and delete [this](/Sources/UIImageColorsObjc/NSImageColorsObjc.swift#L11) and [t
 ## Example
 
 <details>
-  <summary>iOS (Swift)</summary>
-  <br>
-  
-  ```swift
-  import UIImageColors
-  ```
-  
-  Synchronous:
-  
-  ```swift
-  let image = UIImage(named: "example.png")
-  let colors = image.getColors()
-  // use colors
-  ```
-  
-  Asynchronous(completion-handler):
-  
-  ```swift
-  let image = UIImage(named: "example.png"
-  image.getColors { colors in
-      // use colors
-  }
-  ```
-  
-  Asynchronous(async/await):
-  
-  ```swift
-  let image = UIImage(named: "example.png")
-  let colors = await image.colors()
-  // use colors
-  ```
-  
+    <summary>iOS (Swift)</summary>
+    <br>
+
+    ```swift
+    import UIImageColors
+    ```
+
+    Synchronous:
+
+    ```swift
+    let image = UIImage(named: "example.png")
+    let colors = image.getColors()
+    // use colors
+    ```
+
+    Asynchronous(completion-handler):
+
+    ```swift
+    let image = UIImage(named: "example.png"
+    image.getColors { colors in
+        // use colors
+    }
+    ```
+
+    Asynchronous(async/await):
+
+    ```swift
+    let image = UIImage(named: "example.png")
+    let colors = await image.colors()
+    // use colors
+    ```
+
 </details>
 
 <details>
-  <summary>iOS (Objective-C)</summary>
-  <br>
-  
-  ```objc
-  @import UIImageColorsObjc;
-  ```
-  
-  Synchronous:
-  
-  ```objc
-  UIImage *image = [UIImage imageNamed:@"example.png"];
-  UIImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
-  // use colors
-  ```
-  
-  Asynchronous:
-  
-  ```objc
-  UIImage *image = [UIImage imageNamed:@"example.png"];
-  [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(UIImageColors * _Nullable colors) {
-      // use colors
-  }];
-  ```
-  
+    <summary>iOS (Objective-C)</summary>
+    <br>
+
+    ```objc
+    @import UIImageColorsObjc;
+    ```
+
+    Synchronous:
+
+    ```objc
+    UIImage *image = [UIImage imageNamed:@"example.png"];
+    UIImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
+    // use colors
+    ```
+
+    Asynchronous:
+
+    ```objc
+    UIImage *image = [UIImage imageNamed:@"example.png"];
+    [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(UIImageColors * _Nullable colors) {
+        // use colors
+    }];
+    ```
+
 </details>
 
 <details>
-  <summary>macOS (Swift)</summary>
-  <br>
-  
-  ```swift
-  import UIImageColors
-  ```
-  
-  Synchronous:
-  
-  ```swift
-  let image = NSImage(named: "example.png")
-  let colors = image.getColors()
-  // use colors
-  ```
-  
-  Asynchronous(completion-handler):
-  
-  ```swift
-  let image = NSImage(named: "example.png"
-  image.getColors { colors in
-      // use colors
-  }
-  ```
-  
-  Asynchronous(async/await):
-  
-  ```swift
-  let image = NSImage(named: "example.png")
-  let colors = await image.colors()
-  // use colors
-  ```
-  
+    <summary>macOS (Swift)</summary>
+    <br>
+
+    ```swift
+    import UIImageColors
+    ```
+
+    Synchronous:
+
+    ```swift
+    let image = NSImage(named: "example.png")
+    let colors = image.getColors()
+    // use colors
+    ```
+
+    Asynchronous(completion-handler):
+
+    ```swift
+    let image = NSImage(named: "example.png"
+    image.getColors { colors in
+        // use colors
+    }
+    ```
+
+    Asynchronous(async/await):
+
+    ```swift
+    let image = NSImage(named: "example.png")
+    let colors = await image.colors()
+    // use colors
+    ```
+
 </details>
 
 <details>
-  <summary>macOS (Objective-C)</summary>
-  <br>
-  
-  ```objc
-  @import UIImageColorsObjc;
-  ```
-  
-  Synchronous:
-  
-  ```objc
-  NSImage *image = [NSImage imageNamed:@"example.png"];
-  NSImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
-  /// use colors
-  ```
-  
-  Asynchronous:
-  
-  ```objc
-  NSImage *image = [NSImage imageNamed:@"example.png"];
-  [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(NSImageColors * _Nullable colors) {
-      // use colors
-  }];
-  ```
-  
+    <summary>macOS (Objective-C)</summary>
+    <br>
+
+    ```objc
+    @import UIImageColorsObjc;
+    ```
+
+    Synchronous:
+
+    ```objc
+    NSImage *image = [NSImage imageNamed:@"example.png"];
+    NSImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
+    /// use colors
+    ```
+
+    Asynchronous:
+
+    ```objc
+    NSImage *image = [NSImage imageNamed:@"example.png"];
+    [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(NSImageColors * _Nullable colors) {
+        // use colors
+    }];
+    ```
+
 </details>
 
 ## Colors-object
@@ -196,7 +196,7 @@ Higher qualities will give better results at the cost of performance.
 | full                | no scaling  |
 | custom (Swift only) | given value |
 
-All methods provide a qualitiy paramter (which is set to `.high` by default in Swift).
+All methods provide a quality parameter (which is set to `.high` by default in Swift).
 
 ```swift
 let colors = image.getColors(quality: .low)
