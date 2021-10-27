@@ -12,9 +12,13 @@ iTunes style color fetcher for `UIImage` and `NSImage`. It fetches the most domi
 
 ## Installation
 
-### Manual
+### [Swift Package Manager](https://swift.org/package-manager/)
 
-Copy the [Sources-folder](Sources/) into your project.
+Add the following to the dependencies of your `Package.swift`:
+
+```swift
+.package(url: "https://github.com/jathu/UIImageColors.git", from: "x.x.x")
+```
 
 ### [Cocoapods](https://cocoapods.org)
 
@@ -32,75 +36,179 @@ Add UIImageColors to your `Cartfile`:
 github "jathu/UIImageColors"
 ```
 
+### Manual
+
+Copy the [UIImageColors](/Sources/UIImageColors) folder into your project.
+
+For Objective-C copy also the [UIImageColorsObjc](/Sources/UIImageColorsObjc) folder
+and delete [this](/Sources/UIImageColorsObjc/NSImageColorsObjc.swift#L11) and [this](/Sources/UIImageColorsObjc/UIImageColorsObjc.swift#L11) line.
+
 ## Example
 
-Asynchronous example:
+<details>
+  <summary>iOS (Swift)</summary>
+  <br>
+  
+  ```swift
+  import UIImageColors
+  ```
+  
+  Synchronous:
+  
+  ```swift
+  let image = UIImage(named: "example.png")
+  let colors = image.getColors()
+  // use colors
+  ```
+  
+  Asynchronous(completion-handler):
+  
+  ```swift
+  let image = UIImage(named: "example.png"
+  image.getColors { colors in
+      // use colors
+  }
+  ```
+  
+  Asynchronous(async/await):
+  
+  ```swift
+  let image = UIImage(named: "example.png")
+  let colors = await image.colors()
+  // use colors
+  ```
+  
+</details>
+
+<details>
+  <summary>iOS (Objective-C)</summary>
+  <br>
+  
+  ```objc
+  @import UIImageColorsObjc;
+  ```
+  
+  Synchronous:
+  
+  ```objc
+  UIImage *image = [UIImage imageNamed:@"example.png"];
+  UIImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
+  // use colors
+  ```
+  
+  Asynchronous:
+  
+  ```objc
+  UIImage *image = [UIImage imageNamed:@"example.png"];
+  [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(UIImageColors * _Nullable colors) {
+      // use colors
+  }];
+  ```
+  
+</details>
+
+<details>
+  <summary>macOS (Swift)</summary>
+  <br>
+  
+  ```swift
+  import UIImageColors
+  ```
+  
+  Synchronous:
+  
+  ```swift
+  let image = NSImage(named: "example.png")
+  let colors = image.getColors()
+  // use colors
+  ```
+  
+  Asynchronous(completion-handler):
+  
+  ```swift
+  let image = NSImage(named: "example.png"
+  image.getColors { colors in
+      // use colors
+  }
+  ```
+  
+  Asynchronous(async/await):
+  
+  ```swift
+  let image = NSImage(named: "example.png")
+  let colors = await image.colors()
+  // use colors
+  ```
+  
+</details>
+
+<details>
+  <summary>macOS (Objective-C)</summary>
+  <br>
+  
+  ```objc
+  @import UIImageColorsObjc;
+  ```
+  
+  Synchronous:
+  
+  ```objc
+  NSImage *image = [NSImage imageNamed:@"example.png"];
+  NSImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
+  /// use colors
+  ```
+  
+  Asynchronous:
+  
+  ```objc
+  NSImage *image = [NSImage imageNamed:@"example.png"];
+  [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(NSImageColors * _Nullable colors) {
+      // use colors
+  }];
+  ```
+  
+</details>
+
+## Colors-object
+
+`Colors` is an object that contains four different color-properties and is used as the return type.
+
+| Property   | Description                                                                                                                                 |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| background | The most common, non-black/white color.                                                                                                     |
+| primary    | The most common color that is contrasting with the background.                                                                              |
+| secondary  | The second most common color that is contrasting with the background. Also must distinguish itself from the `primary` color.                |
+| detail     | The third most common color that is contrasting with the background. Also must distinguish itself from the `primary` and `secondary` color. |
+
+In Swift `Colors` is a struct and an extension of `UIImage`/`NSImage`;
+in Objective-C there is a `UIImageColors`/`NSImageColors` class which is a concrete subclass of `NSObject`.
+
+## ScaleQuality-enum
+
+`ScaleQuality` is an enum with four different qualities. The qualities refer to how much the original image is scaled down.
+Higher qualities will give better results at the cost of performance.
+
+| Value               | Quality     |
+| ------------------- | ----------- |
+| low                 | 50 pixel    |
+| medium              | 100 pixel   |
+| high                | 250 pixel   | 
+| full                | no scaling  |
+| custom (Swift only) | given value |
+
+All methods provide a qualitiy paramter (which is set to `.high` by default in Swift).
 
 ```swift
-let image = UIImage(named: "yeezus.png")
-
-image.getColors { colors in
-    backgroundView.backgroundColor = colors.background
-    mainLabel.textColor = colors.primary
-    secondaryLabel.textColor = colors.secondary
-    detailLabel.textColor = colors.detail
-}
+let colors = image.getColors(quality: .low)
+let asyncColors = await image.colors(quality: .custom(10))
+image.getColors(quality: .full) { colors in /*...*/ }
 ```
-or with `async/await`
 
-```swift
-let colors = await image.colors()
-```
-
-Synchronous example:
-
-```swift
-let colors = UIImage(named: "yeezus.png").getColors()
-
-backgroundView.backgroundColor = colors.background
-mainLabel.textColor = colors.primary
-secondaryLabel.textColor = colors.secondary
-detailLabel.textColor = colors.detail
-```
-
-## UIImage/NSImage Instance Methods
-
-```swift
-getColors() -> UIImageColors?
-getColors(quality: ImageColorsQuality) -> UIImageColors?
-getColors(_ completion: (UIImageColors?) -> Void) -> Void
-getColors(quality: UIImageColorsQuality, _ completion: (UIImageColors?) -> Void) -> Void
-```
-
-## UIImageColors Objects
-
-`UIImageColors` is struct that contains four different `UIColor` (or `NSColor` on macOS) variables.
-
-```swift
-public struct UIImageColors {
-    public var background: UIColor!
-    public var primary: UIColor!
-    public var secondary: UIColor!
-    public var detail: UIColor!
-}
-```
-
-`UIImageColorsQuality` is a enum with four different qualities. The qualities refer to how much the original image is scaled down. `Lowest` implies smaller size and faster performance at the cost of quality colors. `High` implies larger size with slower performance with good colors. `Highest` implies no downscaling and very good colors, but it is very slow.
-
-The default is set to `high`.
-
-```swift
-public enum UIImageColorsQuality: CGFloat {
-    case lowest = 50 // 50px
-    case low = 100 // 100px
-    case high = 250 // 250px
-    case highest = 0 // No scale
-}
+```objc
+UIImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityLow];
+[image getColorsWithQuality:UIImageColorsScaleQualityFull completion:^(NSImageColors * _Nullable colors) { /*...*/ }];
 ```
 
 ## License
 
 The [license](https://github.com/jathu/UIImageColors/blob/master/LICENSE) is provided in the project folder. This is based on Panic's [OS X ColorArt](https://github.com/panicinc/ColorArt/#license).
-
-------
-June 2015 - Toronto
