@@ -1,4 +1,4 @@
-name: podspec-link
+name: podspec-lint
 
 on:
   workflow_dispatch:
@@ -10,5 +10,5 @@ jobs:
     
     steps:
       - uses: actions/checkout@v2
-      - name: link
-        run: pod spec lint UIImageColors.podspec
+      - name: lint
+        run: pod spec lint
