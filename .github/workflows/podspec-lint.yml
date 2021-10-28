@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: lint
-        run: pod spec lint
+        run: pod lib lint
