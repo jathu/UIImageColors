@@ -40,8 +40,7 @@ github "jathu/UIImageColors"
 
 Copy the [UIImageColors](/Sources/UIImageColors) folder into your project.
 
-For Objective-C copy also the [UIImageColorsObjc](/Sources/UIImageColorsObjc) folder
-and delete [this](/Sources/UIImageColorsObjc/NSImageColorsObjc.swift#L11) and [this](/Sources/UIImageColorsObjc/UIImageColorsObjc.swift#L11) line.
+For Objective-C projects copy the entire [Sources](/Sources) folder.
 
 ## Examples
 

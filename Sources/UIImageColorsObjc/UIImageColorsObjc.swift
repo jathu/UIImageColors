@@ -8,7 +8,10 @@
 #if canImport(UIKit)
 
 import UIKit
+
+#if SWIFT_PACKAGE
 import UIImageColors
+#endif
 
 /// Represents the most common colors inside an image.
 @objc(UIImageColors)
