@@ -170,3 +170,6 @@ UIImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityLow
 ## License
 
 The [license](https://github.com/jathu/UIImageColors/blob/master/LICENSE) is provided in the project folder. This is based on Panic's [OS X ColorArt](https://github.com/panicinc/ColorArt/#license).
+
+------
+June 2015 - Toronto
