@@ -7,7 +7,7 @@ Pod::Spec.new do |spec|
   spec.authors = "Jathu Satkunarajah", "Felix Herrmann"
   spec.source = {
     :git => "https://github.com/jathu/UIImageColors.git",
-    :tag => spec.version
+    :tag => spec.version.to_s
   }
   
   spec.ios.deployment_target = "9.0"
