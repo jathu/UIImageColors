@@ -21,11 +21,11 @@ internal struct _RGB: Hashable {
 
 extension _RGB {
     
-    static internal var black: _RGB {
+    internal static var black: _RGB {
         return _RGB(red: 0, green: 0, blue: 0)
     }
     
-    static internal var white: _RGB {
+    internal static var white: _RGB {
         return _RGB(red: 255, green: 255, blue: 255)
     }
 }
