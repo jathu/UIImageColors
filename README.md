@@ -47,61 +47,40 @@ For Objective-C projects copy the entire [Sources](/Sources) folder.
 
 <details>
   <summary>iOS (Swift)</summary>
-  <br>
   
   ```swift
   import UIImageColors
-  ```
   
-  Synchronous:
-  
-  ```swift
   let image = UIImage(named: "example.png")
+  
+  // Synchronous
   let colors = image.getColors()
-  // use colors
-  ```
   
-  Asynchronous(completion-handler):
-  
-  ```swift
-  let image = UIImage(named: "example.png"
+  // Asynchronous(completion-handler)
   image.getColors { colors in
-      // use colors
+    
   }
-  ```
   
-  Asynchronous(async/await):
-  
-  ```swift
-  let image = UIImage(named: "example.png")
+  // Asynchronous(async/await)
   let colors = await image.colors()
-  // use colors
   ```
   
 </details>
 
 <details>
   <summary>iOS (Objective-C)</summary>
-  <br>
   
   ```objc
   @import UIImageColorsObjc;
-  ```
   
-  Synchronous:
-  
-  ```objc
   UIImage *image = [UIImage imageNamed:@"example.png"];
+  
+  // Synchronous
   UIImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
-  // use colors
-  ```
   
-  Asynchronous:
-  
-  ```objc
-  UIImage *image = [UIImage imageNamed:@"example.png"];
+  // Asynchronous
   [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(UIImageColors * _Nullable colors) {
-      // use colors
+      
   }];
   ```
   
@@ -109,61 +88,40 @@ For Objective-C projects copy the entire [Sources](/Sources) folder.
 
 <details>
   <summary>macOS (Swift)</summary>
-  <br>
   
   ```swift
   import UIImageColors
-  ```
   
-  Synchronous:
-  
-  ```swift
   let image = NSImage(named: "example.png")
+  
+  // Synchronous
   let colors = image.getColors()
-  // use colors
-  ```
   
-  Asynchronous(completion-handler):
-  
-  ```swift
-  let image = NSImage(named: "example.png"
+  // Asynchronous(completion-handler)
   image.getColors { colors in
-      // use colors
+    
   }
-  ```
   
-  Asynchronous(async/await):
-  
-  ```swift
-  let image = NSImage(named: "example.png")
+  // Asynchronous(async/await)
   let colors = await image.colors()
-  // use colors
   ```
   
 </details>
 
 <details>
   <summary>macOS (Objective-C)</summary>
-  <br>
   
   ```objc
   @import UIImageColorsObjc;
-  ```
   
-  Synchronous:
-  
-  ```objc
   NSImage *image = [NSImage imageNamed:@"example.png"];
+  
+  // Synchronous
   NSImageColors *colors = [image getColorsWithQuality:UIImageColorsScaleQualityHigh];
-  /// use colors
-  ```
   
-  Asynchronous:
-  
-  ```objc
-  NSImage *image = [NSImage imageNamed:@"example.png"];
+  // Asynchronous
   [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(NSImageColors * _Nullable colors) {
-      // use colors
+      
   }];
   ```
   
