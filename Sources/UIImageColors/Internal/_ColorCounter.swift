@@ -22,7 +22,7 @@ internal struct _ColorCounter {
         guard let pixelFormat = cgImage.bitmapInfo.pixelFormat else { return nil }
         guard let data = cgImage.dataProvider?.data, let bytes = CFDataGetBytePtr(data) else { return nil }
         
-        self.threshold = Int(CGFloat(cgImage.height) * 0.01)
+        self.threshold = Int(Float(cgImage.height) * 0.01)
         
         // Accessing the raw pixels
         // https://www.ralfebert.de/ios/examples/image-processing/uiimage-raw-pixels/
