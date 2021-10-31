@@ -118,4 +118,4 @@ extension _ColorAnalyzer {
     }
 }
 
-#endif
+#endif // canImport(UIKit)

@@ -81,7 +81,7 @@ extension NSImage {
             }
         }
     }
-    #endif
+    #endif // canImport(_Concurrency)
 }
 
 
@@ -139,4 +139,4 @@ extension _ColorAnalyzer {
     }
 }
 
-#endif
+#endif // canImport(AppKit)
