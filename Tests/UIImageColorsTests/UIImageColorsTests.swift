@@ -9,6 +9,9 @@ import XCTest
 @testable import UIImageColors
 #if canImport(UIKit)
 import UIKit
+#if canImport(WatchKit)
+import WatchKit
+#endif
 #elseif canImport(AppKit)
 import AppKit
 #endif
@@ -88,7 +91,7 @@ final class UIImageColorsTests: XCTestCase {
     }
     #endif
     
-    func testScaling() throws {
+    func testScaleQuality() throws {
         let colors = try XCTUnwrap(image.getColors(quality: .low))
         let primary = try XCTUnwrap(colors.primary)
         let secondary = try XCTUnwrap(colors.secondary)
@@ -107,7 +110,7 @@ final class UIImageColorsTests: XCTestCase {
         #endif
     }
     
-    func testCustomScaling() throws {
+    func testCustomScaleQuality() throws {
         let colors = try XCTUnwrap(image.getColors(quality: .custom(123)))
         let primary = try XCTUnwrap(colors.primary)
         let secondary = try XCTUnwrap(colors.secondary)
@@ -123,6 +126,32 @@ final class UIImageColorsTests: XCTestCase {
         XCTAssertTrue(primary.rgb == (0, 0, 0))
         XCTAssertFalse(secondary.rgb == (0, 0, 0)) // secondary value is not consistent
         XCTAssertFalse(detail.rgb == (0, 0, 0)) // detail value is not consistent
+        #endif
+    }
+    
+    func testInternalScaling() throws {
+        #if canImport(UIKit)
+        let cgImage = try XCTUnwrap(image.cgImage)
+        #elseif canImport(AppKit)
+        let cgImage = try XCTUnwrap(image.cgImage(forProposedRect: nil, context: nil, hints: nil))
+        #endif
+        
+        XCTAssertEqual(cgImage.width, 357)
+        XCTAssertEqual(cgImage.height, 500)
+        
+        let resizgedCGImage = try XCTUnwrap(image._resizedCGImage(size: CGSize(width: 100, height: 100)))
+        
+        #if canImport(UIKit)
+        #if canImport(WatchKit)
+        let scale = Int(WKInterfaceDevice.current().screenScale)
+        #else
+        let scale = Int(UIScreen.main.scale)
+        #endif
+        XCTAssertEqual(resizgedCGImage.width / scale, 100)
+        XCTAssertEqual(resizgedCGImage.height / scale, 100)
+        #elseif canImport(AppKit)
+        XCTAssertEqual(resizgedCGImage.width, 100)
+        XCTAssertEqual(resizgedCGImage.height, 100)
         #endif
     }
 }
