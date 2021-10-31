@@ -22,18 +22,18 @@
 #pragma mark - Setter
 
 - (void)setImage:(NSImage *)image {
-    [self._imageView.layer setContents:image];
+    self._imageView.layer.contents = image;
     [image getColorsWithQuality:UIImageColorsScaleQualityHigh completion:^(NSImageColors * _Nullable colors) {
         if(colors != nil) {
-            [self.view.layer setBackgroundColor:colors.background.CGColor];
-            [self.mainLabel setTextColor:colors.primary];
-            [self.secondaryLabel setTextColor:colors.secondary];
-            [self.detailLabel setTextColor:colors.detail];
+            self.view.layer.backgroundColor = colors.background.CGColor;
+            self.mainLabel.textColor = colors.primary;
+            self.secondaryLabel.textColor = colors.secondary;
+            self.detailLabel.textColor = colors.detail;
         } else {
-            [self.view.layer setBackgroundColor:nil];
-            [self.mainLabel setTextColor:NSColor.labelColor];
-            [self.secondaryLabel setTextColor:NSColor.labelColor];
-            [self.detailLabel setTextColor:NSColor.labelColor];
+            self.view.layer.backgroundColor = nil;
+            self.mainLabel.textColor = NSColor.labelColor;
+            self.secondaryLabel.textColor = NSColor.labelColor;
+            self.detailLabel.textColor = NSColor.labelColor;
         }
     }];
 }
@@ -43,25 +43,25 @@
 
 - (void)loadView {
     self.view = [[NSView alloc] init];
-    [self.view setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
-    [self.view setWantsLayer:true];
+    self.view.autoresizingMask = NSViewWidthSizable | NSViewHeightSizable;
+    self.view.wantsLayer = YES;
     
     self._imageView = [[NSView alloc] init];
-    [self._imageView setLayer:[[CALayer alloc] init]];
-    [self._imageView.layer setContentsGravity:kCAGravityResizeAspectFill];
-    [self._imageView setTranslatesAutoresizingMaskIntoConstraints:false];
+    self._imageView.layer = [[CALayer alloc] init];
+    self._imageView.layer.contentsGravity = kCAGravityResizeAspectFill;
+    self._imageView.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.mainLabel = [[NSLabel alloc] init];
-    [self.mainLabel setFont:[NSFont systemFontOfSize:15 weight:NSFontWeightSemibold]];
-    [self.mainLabel setTranslatesAutoresizingMaskIntoConstraints:false];
+    self.mainLabel.font = [NSFont systemFontOfSize:15 weight:NSFontWeightSemibold];
+    self.mainLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.secondaryLabel = [[NSLabel alloc] init];
-    [self.secondaryLabel setFont:[NSFont systemFontOfSize:12 weight:NSFontWeightSemibold]];
-    [self.secondaryLabel setTranslatesAutoresizingMaskIntoConstraints:false];
+    self.secondaryLabel.font = [NSFont systemFontOfSize:12 weight:NSFontWeightSemibold];
+    self.secondaryLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     self.detailLabel = [[NSLabel alloc] init];
-    [self.detailLabel setFont:[NSFont systemFontOfSize:12 weight:NSFontWeightSemibold]];
-    [self.detailLabel setTranslatesAutoresizingMaskIntoConstraints:false];
+    self.detailLabel.font = [NSFont systemFontOfSize:12 weight:NSFontWeightSemibold];
+    self.detailLabel.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSLayoutGuide *layoutGuide = [[NSLayoutGuide alloc] init];
     [self.view addLayoutGuide:layoutGuide];

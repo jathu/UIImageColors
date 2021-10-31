@@ -17,7 +17,7 @@
     NSRect screenRect = [NSScreen mainScreen].frame;
     NSRect contentRect = CGRectMake(0, 0, screenRect.size.width, screenRect.size.height);
     
-    self.window = [[NSWindow alloc] initWithContentRect:contentRect styleMask:NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskClosable | NSWindowStyleMaskResizable | NSWindowStyleMaskTitled | NSWindowStyleMaskUnifiedTitleAndToolbar | NSWindowStyleMaskFullSizeContentView backing:NSBackingStoreBuffered defer:false];
+    self.window = [[NSWindow alloc] initWithContentRect:contentRect styleMask:NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskClosable | NSWindowStyleMaskResizable | NSWindowStyleMaskTitled | NSWindowStyleMaskUnifiedTitleAndToolbar | NSWindowStyleMaskFullSizeContentView backing:NSBackingStoreBuffered defer:NO];
     
     self.window.title = @"macOS Objective-C Example";
     self.window.contentViewController = [[ViewController alloc] init];

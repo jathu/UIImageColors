@@ -61,16 +61,16 @@
 
 - (void)setupLabels {
     self.mainLabel = [[UILabel alloc] init];
-    self.mainLabel.translatesAutoresizingMaskIntoConstraints = false;
+    self.mainLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.mainLabel.numberOfLines = 2;
     self.mainLabel.font = [UIFont systemFontOfSize:25 weight:UIFontWeightRegular];
     
     self.secondaryLabel = [[UILabel alloc] init];
-    self.secondaryLabel.translatesAutoresizingMaskIntoConstraints = false;
+    self.secondaryLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.secondaryLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightRegular];
     
     self.detailLabel = [[UILabel alloc] init];
-    self.detailLabel.translatesAutoresizingMaskIntoConstraints = false;
+    self.detailLabel.translatesAutoresizingMaskIntoConstraints = NO;
     self.detailLabel.font = [UIFont systemFontOfSize:15 weight:UIFontWeightRegular];
     
     [self.view addSubview:self.mainLabel];
@@ -98,7 +98,7 @@
     self.pageViewController.delegate = self;
     
     PaintingViewController *firstPaitingViewController = [[PaintingViewController alloc] initWithPainting:Painting.examples[self.currentIndex]];
-    [self.pageViewController setViewControllers:@[firstPaitingViewController] direction:UIPageViewControllerNavigationDirectionForward animated:false completion:nil];
+    [self.pageViewController setViewControllers:@[firstPaitingViewController] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
     [self updateColorsFrom:firstPaitingViewController];
     
     [self addChildViewController:self.pageViewController];

@@ -44,8 +44,8 @@
 - (void)setupView {
     self.imageView = [[UIImageView alloc] initWithImage:self.painting.image];
     self.imageView.contentMode = UIViewContentModeScaleAspectFill;
-    self.imageView.clipsToBounds = true;
-    self.imageView.translatesAutoresizingMaskIntoConstraints = false;
+    self.imageView.clipsToBounds = YES;
+    self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [self.view addSubview:self.imageView];
     

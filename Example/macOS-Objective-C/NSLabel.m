@@ -26,12 +26,12 @@
 
 - (instancetype)initWithFrame:(NSRect)frameRect {
     if(self = [super initWithFrame:frameRect]) {
-        [self setLineBreakMode:NSLineBreakByTruncatingTail];
-        [self setMaximumNumberOfLines:1];
-        [self setBezeled:false];
-        [self setDrawsBackground:false];
-        [self setEditable:false];
-        [self setSelectable:false];
+        self.lineBreakMode = NSLineBreakByTruncatingTail;
+        self.maximumNumberOfLines = 1;
+        self.bezeled = NO;
+        self.drawsBackground = NO;
+        self.editable = NO;
+        self.selectable = NO;
     }
     
     return self;

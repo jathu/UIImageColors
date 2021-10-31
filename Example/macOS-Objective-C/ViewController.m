@@ -77,7 +77,7 @@
     NSDiffableDataSourceSnapshot<NSString *,Painting *> *snapshot = [[NSDiffableDataSourceSnapshot alloc] init];
     [snapshot appendSectionsWithIdentifiers:@[@"main"]];
     [snapshot appendItemsWithIdentifiers:Painting.examples intoSectionWithIdentifier:@"main"];
-    [self.dataSource applySnapshot:snapshot animatingDifferences:false];
+    [self.dataSource applySnapshot:snapshot animatingDifferences:NO];
 }
 
 @end
