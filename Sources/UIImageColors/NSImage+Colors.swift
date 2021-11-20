@@ -5,7 +5,7 @@
 //  Created by Felix Herrmann on 05.10.21.
 //
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 
 import AppKit
 
@@ -139,4 +139,4 @@ extension _ColorAnalyzer {
     }
 }
 
-#endif // canImport(AppKit)
+#endif // canImport(AppKit) && !targetEnvironment(macCatalyst)

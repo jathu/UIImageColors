@@ -5,13 +5,13 @@
 //  Created by Felix Herrmann on 14.10.21.
 //
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 
 import AppKit
 
 #if SWIFT_PACKAGE
 import UIImageColors
-#endif
+#endif // SWIFT_PACKAGE
 
 /// Represents the most common colors inside an image.
 @objc(NSImageColors)
@@ -77,4 +77,4 @@ extension NSImage {
     }
 }
 
-#endif
+#endif // canImport(AppKit) && !targetEnvironment(macCatalyst)

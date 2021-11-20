@@ -9,7 +9,7 @@ import Foundation
 
 #if SWIFT_PACKAGE
 import UIImageColors
-#endif
+#endif // SWIFT_PACKAGE
 
 /// The quality the original image should be scaled to.
 @objc

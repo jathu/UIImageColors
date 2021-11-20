@@ -15,7 +15,7 @@ public typealias UIImageColors = UIImage.Colors
 #endif
 
 
-#if canImport(AppKit)
+#if canImport(AppKit) && !targetEnvironment(macCatalyst)
 
 import AppKit
 

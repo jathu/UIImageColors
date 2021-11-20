@@ -11,7 +11,7 @@ import UIKit
 
 #if SWIFT_PACKAGE
 import UIImageColors
-#endif
+#endif // SWIFT_PACKAGE
 
 /// Represents the most common colors inside an image.
 @objc(UIImageColors)
@@ -77,4 +77,4 @@ extension UIImage {
     }
 }
 
-#endif
+#endif // canImport(UIKit)
