@@ -18,6 +18,16 @@ jobs:
       - name: Run macOS tests
         run: xcodebuild -scheme UIImageColors-Package -destination 'platform=macOS' test
   
+  build-macos-catalyst:
+    runs-on: macos-11
+    
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build macOS Catalyst
+        run: xcodebuild -scheme UIImageColors-Package -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst'
+      - name: Run macOS Catalyst tests
+        run: xcodebuild -scheme UIImageColors-Package -destination 'platform=macOS,arch=x86_64,variant=Mac Catalyst' test
+  
   build-ios:
     runs-on: macos-11
     
