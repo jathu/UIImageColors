@@ -6,6 +6,8 @@ on:
   pull_request:
     branches: [ master ]
   workflow_dispatch:
+env:
+  DEVELOPER_DIR: /Applications/Xcode_13.2.app/Contents/Developer
 
 jobs:
   build-macos:
