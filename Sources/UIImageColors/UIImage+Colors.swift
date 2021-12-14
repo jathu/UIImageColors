@@ -72,7 +72,7 @@ extension UIImage {
     ///
     /// - Parameter quality: The scale quality. Default is `ScaleQuality.high`.
     /// - Returns: The ``Colors`` from the image asynchronously.
-    @available(iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     public func colors(quality: ScaleQuality = .high) async -> Colors? {
         await withUnsafeContinuation { continuation in
             getColors(quality: quality) { colors in

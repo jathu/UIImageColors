@@ -68,12 +68,11 @@ extension NSImage {
         }
     }
     
-    #if canImport(_Concurrency)
     /// Creates the ``Colors`` asynchronously.
     ///
     /// - Parameter quality: The scale quality. Default is `ScaleQuality.high`.
     /// - Returns: The ``Colors`` from the image asynchronously.
-    @available(macOS 12.0, *)
+    @available(macOS 10.15, *)
     public func colors(quality: ScaleQuality = .high) async -> Colors? {
         await withUnsafeContinuation { continuation in
             getColors(quality: quality) { colors in
@@ -81,7 +80,6 @@ extension NSImage {
             }
         }
     }
-    #endif // canImport(_Concurrency)
 }
 
 

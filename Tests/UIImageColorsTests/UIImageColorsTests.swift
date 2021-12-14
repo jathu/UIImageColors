@@ -75,8 +75,7 @@ final class UIImageColorsTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
     }
     
-    #if canImport(_Concurrency)
-    @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, *)
+    @available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
     func testAsyncAwaitResults() async throws {
         let optionalColors = await image.colors(quality: .full)
         let colors = try XCTUnwrap(optionalColors)
@@ -89,7 +88,6 @@ final class UIImageColorsTests: XCTestCase {
         XCTAssertTrue(secondary.rgb == (255, 84, 126))
         XCTAssertTrue(detail.rgb == (115, 110, 106) || detail.rgb == (127, 120, 114)) // detail value is not consistent
     }
-    #endif
     
     func testScaleQuality() throws {
         let colors = try XCTUnwrap(image.getColors(quality: .low))
